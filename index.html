@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 <html>
 <head>
-    <title>Оболонь, Русанівка чи ДВРЗ?</title>
+    <title>Ти з якого району, блядь???</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/application.css" type="text/css">
@@ -17,7 +17,7 @@
 
     <meta property="og:site_name" content="ТЕКСТИ.ORG.UA"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Оболонь, Русанівка чи ДВРЗ?"/>
+    <meta property="og:title" content="Ти з якого району, блядь???"/>
     <meta property="og:image" content="http://texty.org.ua/d/2019/kyiv_puzzle/image/og1.jpg"/>
     <meta property="og:description" content="Наскільки гарно ти знаєш райони Києва?"/>
     <meta property="og:url" content="http://texty.org.ua/d/2019/kyiv_puzzle/">
@@ -26,13 +26,13 @@
     <meta property="twitter:account_id" content="49572937"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:url" content="http://texty.org.ua/d/2019/kyiv_puzzle/"/>
-    <meta name="twitter:title" content="Оболонь, Русанівка чи ДВРЗ?"/>
+    <meta name="twitter:title" content="Ти з якого району, блядь???"/>
     <meta name="twitter:description" content="Наскільки гарно ти знаєш райони Києва?"/>
     <meta name="twitter:image:src" content="http://texty.org.ua/d/2019/kyiv_puzzle/image/og1.jpg"/>
     <meta name="twitter:image:width" content="1200"/>
     <meta name="twitter:image:height" content="630"/>
     <!-- Other Meta Tags -->
-    <meta name="title" content="Оболонь, Русанівка чи ДВРЗ?">
+    <meta name="title" content="Ти з якого району, блядь???">
     <meta name="description" content="Наскільки гарно ти знаєш райони Києва?">
 
 </head>
@@ -61,35 +61,100 @@
 <div class="container-fluid main-title">
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <h3>Оболонь, Русанівка чи ДВРЗ?</h3>
+            <h3>Ти з якого району, блядь???</h3>
         </div>
     </div>
+
     <div class="row justify-content-center">
-        <!--h4>Здвідки походить кожний голос, який віддали за переможців першого туру?</h4-->
+        <p>Сука, ану іди сюда!</p>
     </div>
 </div>
 
 
 
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
-            <p>Порошенка підтримали більше ніж Зеленського на Галичині, частині Волині, Вінниччині  у центрі Києва, та на значній частині звільненого Донбасу. На решті території перевага у Зе. На карті результат лише для двох кандидатів, що вийшли до другого туру. Позначена територія, закріплена за кожною виборчою дільницею. Якщо результат на сусідніх ділянках приблизно однаковий, то вони візуально об’єднані. 
-                По кліку можна подивитися голоси, віддані за Порошенка та Зеленського, та явку. Яскравість кольору пропорційна кількості голосів, які отримав кандидат на цій дільниці.
-                Карту можна пересувати, збільшувати та зменшувати. На карті не позначено військових дільниць.</p>
+<!--<div class="container">-->
+    <!--<div class="row d-flex justify-content-center">-->
+        <!--<div class="col-12 col-md-8 col-lg-6">-->
+            <!--<p>Сука, ану іди сюда!</p>-->
+            <!--&lt;!&ndash;<p>26 травня 2019 року</p>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
-            <p>26 травня 2019 року</p>
-        </div>
-    </div>
-</div>
+<style>
+    .draggable.active {
+        position: absolute;
 
-<div class="container-fluid" style="margin-top: 3em;">
+
+    }
+
+</style>
+
+<div class="container-fluid" style="margin-top: 3em; position: relative" id="drag_container">
     <div class="row">
-        <div class="col-12 map-container" id="map">
+        <div class="col-9 map-container" id="map">
+            <img src="data/start_clear.png" id="main_map" style="width: 100%; position: absolute; top:0; left: 0">
+            <img src="data/texts.png" style="width: 100%; position: absolute; top:0; left: 0; z-index: 1000">
+        </div>
+
+        <div class="col-3 pick-up-table" style="position: unset;">
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Academmistechko.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Bereznyaky.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Berkovez.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Borschagivka.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_DVRZ.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Syrez.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Shulyavka.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Vynogradar.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Troyeschyna.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Obolon.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Rusanivka.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Osokorky.png">
+            </div>
+
+            <div class="pick-item">
+                <img class="draggable" src="data/Png_areas/b_Nova_Zabudova_Golosiivo.png">
+            </div>
 
         </div>
     </div>
 </div>
+
+
 
 <div class="container">
 
@@ -169,8 +234,11 @@
 </div>
 
 <script src="libs/d3.js"></script>
+
+
 <script src="libs/share-behavior.js"></script>
 
+<script src="js/game.js"></script>
 <script src="js/main.js"></script>
 
 <script type="text/javascript">

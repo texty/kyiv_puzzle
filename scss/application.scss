@@ -3,13 +3,11 @@
 @import "base/mixins";
 @import "base/base";
 
-
 @import "components/header";
-@import "poll_chart";
-@import "color_scheme";
+@import "game";
 
 body {
-  padding-top: 3em;
+  //padding-top: 3em;
   color: $main-text;
 
   svg text { fill: $main-text };
@@ -80,7 +78,7 @@ h3  {
   font-weight: 800;
   font-size: 2em;
   margin-top: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 p {
