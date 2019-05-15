@@ -1,18 +1,33 @@
 (function() {
-    var bbox = {
-        top: 50.1,
-        right: 32.1,
-        bottom: 48.1,
-        left: 30.1
-    };
 
-
-    var original = {
+    var pic_size = {
         width: 1900,
         height: 1343
     };
 
-    var factor = document.getElementById("main_map").width / original.width;
+    var real = {
+        left_top: [30.362, 50.515],
+        right_top: [30.682, 50.526],
+        left_bottom: [30.338, 50.379],
+        right_bottom: [30.699, 50.377]
+    };
+
+    var pic = {
+        left_top: [173.865, 149.215],
+        right_top: [1766.244, 68.191],
+        left_bottom: [55.264, 1215.481],
+        right_bottom: [1850.616, 1231.967]
+    };
+
+    var factor = document.getElementById("main_map").width / pic_size.width;
+
+    var project = projection()
+        .x_domain([pic.left_top[0] * factor, pic.right_top[0] * factor])
+        .x_range([real.left_top[0], real.right_top[0]])
+        .y_domain([pic.left_top[1] * factor, pic.left_bottom[1] * factor])
+        .y_range([real.left_top[1], real.left_bottom[1]]);
+
+
 
     d3.select(".pick-up-table")
         .selectAll("img.draggable")
@@ -25,19 +40,21 @@
         });
 
 
-    var container = d3.select("#drag_container").node();
+    var container = d3.select("#drag_container");
 
     d3.select(".pick-up-table")
         .selectAll(".draggable")
         .call(d3.drag()
-            // .subject(function(){
-            //
-            //     return {x: this.offsetLeft, y: this.offsetTop}
-            // })
-            .container(container)
+            .container(container.node())
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended));
+
+
+    container.on("click", function(){
+        console.log(project([d3.event.layerX, d3.event.layerY]));
+    });
+
 
 
     function dragstarted(d) {
@@ -71,6 +88,46 @@
 
     }
 
+
+    function projection() {
+        var x = d3.scaleLinear();
+        var y = d3.scaleLinear();
+
+        function p(val) {
+            return [x(val[0]), y(val[1])];
+        }
+
+        p.invert = function(val) {
+            return [x.invert(val[0]), y.invert(val[1])];
+        };
+
+
+        p.x_domain = function(_) {
+            if (!arguments.length) return x.domain();
+            x.domain(_);
+            return p;
+        };
+
+        p.y_domain = function(_) {
+            if (!arguments.length) return y.domain();
+            y.domain(_);
+            return p;
+        };
+
+        p.x_range = function(_) {
+            if (!arguments.length) return x.range();
+            x.range(_);
+            return p;
+        };
+
+        p.y_range = function(_) {
+            if (!arguments.length) return x.range();
+            y.range(_);
+            return p;
+        };
+
+        return p;
+    }
 
 }());
 
