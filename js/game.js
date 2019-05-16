@@ -46,17 +46,17 @@
 
 
 
-            // d3.select("svg")
-            //     .selectAll("polygon")
-            //     .data(data.features)
-            //     .enter()
-            //     .append("polygon")
-            //     .attr("points", function(d) {
-            //         return d.geometry.coordinates[0].map(dd => project.invert(dd).join(",")).join(" ");
-            //     })
-            //     .attr("fill", "none")
-            //     .attr("stroke","black")
-            //     .attr("stroke-width",1);
+            d3.select("svg")
+                .selectAll("polygon")
+                .data(data.features)
+                .enter()
+                .append("polygon")
+                .attr("points", function(d) {
+                    return d.geometry.coordinates[0].map(dd => project.invert(dd).join(",")).join(" ");
+                })
+                .attr("fill", "none")
+                .attr("stroke","black")
+                .attr("stroke-width",1);
 
 
 

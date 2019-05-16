@@ -70,6 +70,8 @@
     </div>
 </div>
 
+<button id="show_svg">Показати границі</button>
+
 
 
 <!--<div class="container">-->
@@ -180,12 +182,24 @@
 
 <script src="libs/d3.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
-
 <script src="libs/share-behavior.js"></script>
 
 <script src="js/game.js"></script>
 <script src="js/main.js"></script>
 
+
+<script>
+
+    d3.select("svg").datum({show: false})
+            .style("opacity", d => d.show ? "1" : "0");
+
+    d3.select("button#show_svg").on("click", function(){
+        d3.select("svg")
+                .each(d => d.show = !d.show)
+                .style("opacity", d => d.show ? "1" : "0");
+    })
+
+</script>
 
 
 <script type="text/javascript">
