@@ -27,8 +27,9 @@
         .y_range([real.left_top[1], real.left_bottom[1]]);
 
 
-    document.querySelector(".pick-up-table").style.height =
-        document.getElementById("main_map").height + "px";
+    document.getElementById("main_map").onload = function() {
+        document.querySelector(".pick-up-table").style.height = this.height + "px";
+    };
 
     d3.json("data/districts.geojson")
         .then(function(data) {
