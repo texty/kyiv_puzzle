@@ -1,17 +1,32 @@
-#drag_container {
-  overflow: hidden;
-
-
+#main_map {
+  background-color: #dbdbdb;
 
 }
 
+#drag_container {
+  //overflow-y: visible;
+  //overflow-x: hidden;
+}
+
+.pick-up-table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+
+  overflow: hidden;
+}
+
 .pick-item {
+  margin: 10px;
+
   &.empty {
     height: 0 !important;
     width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
-
-
 
 }
 
@@ -40,7 +55,5 @@
               /* do whatever you want with yellow */
 
             hue-rotate(-64deg);
-
-
   }
 }

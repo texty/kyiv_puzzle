@@ -18,6 +18,18 @@
         right_bottom: [1850.616, 1231.967]
     };
 
+    var factor = document.getElementById("main_map").width / pic_size.width;
+
+    var project = projection()
+        .x_domain([pic.left_top[0] * factor, pic.right_top[0] * factor])
+        .x_range([real.left_top[0], real.right_top[0]])
+        .y_domain([pic.left_top[1] * factor, pic.left_bottom[1] * factor])
+        .y_range([real.left_top[1], real.left_bottom[1]]);
+
+
+    document.querySelector(".pick-up-table").style.height =
+        document.getElementById("main_map").height + "px";
+
     d3.json("data/districts.geojson")
         .then(function(data) {
             var districts = data.features.map(function(d) {
@@ -25,19 +37,12 @@
                     id: d.properties.id,
                     area_name: d.properties.area_name,
                     cx: d.properties.cx,
-                    cy: d.properties.cy
+                    cy: d.properties.cy,
+                    size: turf.area(turf.bboxPolygon(turf.bbox(d.geometry)))
                 }
-            });
+            }).sort((a, b) => b.size - a.size);
 
 
-
-            var factor = document.getElementById("main_map").width / pic_size.width;
-
-            var project = projection()
-                .x_domain([pic.left_top[0] * factor, pic.right_top[0] * factor])
-                .x_range([real.left_top[0], real.right_top[0]])
-                .y_domain([pic.left_top[1] * factor, pic.left_bottom[1] * factor])
-                .y_range([real.left_top[1], real.left_bottom[1]]);
 
 
             // d3.select("svg")
@@ -116,7 +121,6 @@
             function dragended(d) {
                 //todo
                 // check if we met conditions
-
 
                 var p = project([d3.event.x + d.width / 2, d3.event.y + d.height / 2]);
                 var distance = turf.distance(p, [d.cx, d.cy], {units: "meters"});

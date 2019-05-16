@@ -27,12 +27,24 @@ header {
   header .lang-link {
     color: #424242; }
 
-#drag_container {
+#main_map {
+  background-color: #dbdbdb; }
+
+.pick-up-table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
   overflow: hidden; }
 
-.pick-item.empty {
-  height: 0 !important;
-  width: 0 !important; }
+.pick-item {
+  margin: 10px; }
+  .pick-item.empty {
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important; }
 
 .draggable {
   cursor: pointer;
@@ -127,10 +139,5 @@ select#chart-select {
   border: 1px solid #777;
   background-color: #e8e8e8;
   cursor: help; }
-
-.map-container {
-  height: 150vh; }
-  .map-container .leaflet-top {
-    top: 2.5em; }
 
 /*# sourceMappingURL=application.css.map */
