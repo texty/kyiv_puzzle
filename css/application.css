@@ -27,9 +27,6 @@ header {
   header .lang-link {
     color: #424242; }
 
-#main_map {
-  background-color: #dbdbdb; }
-
 .pick-up-table {
   display: flex;
   flex-direction: row;

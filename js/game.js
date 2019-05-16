@@ -44,8 +44,6 @@
             }).sort((a, b) => b.size - a.size);
 
 
-
-
             d3.select("svg")
                 .selectAll("polygon")
                 .data(data.features)
@@ -57,7 +55,6 @@
                 .attr("fill", "none")
                 .attr("stroke","black")
                 .attr("stroke-width",1);
-
 
 
             var imgs = d3.select(".pick-up-table")
