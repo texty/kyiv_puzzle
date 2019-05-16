@@ -70,7 +70,7 @@
     </div>
 </div>
 
-<button id="show_svg">Показати границі</button>
+<!--<button id="show_svg">Показати границі</button>-->
 
 
 
@@ -190,14 +190,14 @@
 
 <script>
 
-    d3.select("svg").datum({show: false})
-            .style("opacity", d => d.show ? "1" : "0");
-
-    d3.select("button#show_svg").on("click", function(){
-        d3.select("svg")
-                .each(d => d.show = !d.show)
-                .style("opacity", d => d.show ? "1" : "0");
-    })
+//    d3.select("svg").datum({show: false})
+//            .style("opacity", d => d.show ? "1" : "0");
+//
+//    d3.select("button#show_svg").on("click", function(){
+//        d3.select("svg")
+//                .each(d => d.show = !d.show)
+//                .style("opacity", d => d.show ? "1" : "0");
+//    })
 
 </script>
 

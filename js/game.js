@@ -39,22 +39,23 @@
                     area_name: d.properties.area_name,
                     cx: d.properties.cx,
                     cy: d.properties.cy,
-                    size: turf.area(turf.bboxPolygon(turf.bbox(d.geometry)))
+                    size: turf.area(turf.bboxPolygon(turf.bbox(d.geometry))),
+                    geometry: d.geometry
                 }
             }).sort((a, b) => b.size - a.size);
 
 
-            d3.select("svg")
-                .selectAll("polygon")
-                .data(data.features)
-                .enter()
-                .append("polygon")
-                .attr("points", function(d) {
-                    return d.geometry.coordinates[0].map(dd => project.invert(dd).join(",")).join(" ");
-                })
-                .attr("fill", "none")
-                .attr("stroke","black")
-                .attr("stroke-width",1);
+            // d3.select("svg")
+            //     .selectAll("polygon")
+            //     .data(data.features)
+            //     .enter()
+            //     .append("polygon")
+            //     .attr("points", function(d) {
+            //         return d.geometry.coordinates[0].map(dd => project.invert(dd).join(",")).join(" ");
+            //     });
+
+            var highlight_poly = d3.select("svg")
+                .append("polygon");
 
 
             var imgs = d3.select(".pick-up-table")
@@ -114,12 +115,20 @@
                 d3.select(this)
                     .style("left", d3.event.x + "px")
                     .style("top", d3.event.y + "px");
+
+                var p = project([d3.event.x + d.width / 2, d3.event.y + d.height / 2]);
+                var distance = turf.distance(p, [d.cx, d.cy], {units: "meters"});
+
+                if (distance < 1000) {
+                    highlight_poly.attr("points", function() {
+                        return d.geometry.coordinates[0].map(dd => project.invert(dd).join(",")).join(" ");
+                    }).classed("active", true);
+                } else {
+                    highlight_poly.classed("active", false);
+                }
             }
 
             function dragended(d) {
-                //todo
-                // check if we met conditions
-
                 var p = project([d3.event.x + d.width / 2, d3.event.y + d.height / 2]);
                 var distance = turf.distance(p, [d.cx, d.cy], {units: "meters"});
                 console.log(distance);
@@ -139,7 +148,7 @@
                 } else {
                     var place = project.invert([d.cx, d.cy]);
 
-                    console.log(place)
+                    console.log(place);
 
                     d3.select(this)
                         .transition()
@@ -159,11 +168,7 @@
                             });
                         });
                 }
-
             }
-
-
-
 
 
         });

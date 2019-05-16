@@ -57,3 +57,18 @@
             hue-rotate(-64deg);
   }
 }
+
+
+svg {
+  polygon {
+    fill: none;
+    stroke: none;
+
+    &.active {
+      stroke: none;
+      //stroke-width: 1;
+      fill: #ff9900;
+      fill-opacity: 0.2;
+    }
+  }
+}
