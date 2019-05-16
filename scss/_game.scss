@@ -12,23 +12,25 @@
 
   &.active {
     position: absolute;
-
-  //  filter:
-  //          /* for demonstration purposes; originals not entirely black */
-  //          //contrast(1000%)
-  //            /* black to white */
-  //          invert(100%)
-  //            /* white to off-white */
-  //          sepia(100%)
-  //            /* off-white to yellow */
-  //          saturate(20)
-  //            //saturate(1000000%)
-  //            /* do whatever you want with yellow */
-  //
-  //          hue-rotate(-64deg);
-  //
-
   }
 
+  &.placed {
+    position: absolute;
 
+    filter:
+            /* for demonstration purposes; originals not entirely black */
+            //contrast(1000%)
+              /* black to white */
+            invert(100%)
+              /* white to off-white */
+            sepia(100%)
+              /* off-white to yellow */
+            saturate(20)
+              //saturate(1000000%)
+              /* do whatever you want with yellow */
+
+            hue-rotate(-64deg);
+
+
+  }
 }

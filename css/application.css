@@ -35,6 +35,9 @@ header {
   color: #F3A587; }
   .draggable.active {
     position: absolute; }
+  .draggable.placed {
+    position: absolute;
+    filter: invert(100%) sepia(100%) saturate(20) hue-rotate(-64deg); }
 
 body {
   color: #424242; }

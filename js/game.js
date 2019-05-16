@@ -1,5 +1,4 @@
 (function() {
-
     var pic_size = {
         width: 1900,
         height: 1343
@@ -19,74 +18,161 @@
         right_bottom: [1850.616, 1231.967]
     };
 
-    var factor = document.getElementById("main_map").width / pic_size.width;
+    d3.json("data/districts.geojson")
+        .then(function(data) {
+            var districts = data.features.map(function(d) {
+                return {
+                    id: d.properties.id,
+                    area_name: d.properties.area_name,
+                    cx: d.properties.cx,
+                    cy: d.properties.cy
+                }
+            });
 
-    var project = projection()
-        .x_domain([pic.left_top[0] * factor, pic.right_top[0] * factor])
-        .x_range([real.left_top[0], real.right_top[0]])
-        .y_domain([pic.left_top[1] * factor, pic.left_bottom[1] * factor])
-        .y_range([real.left_top[1], real.left_bottom[1]]);
+
+
+            var factor = document.getElementById("main_map").width / pic_size.width;
+
+            var project = projection()
+                .x_domain([pic.left_top[0] * factor, pic.right_top[0] * factor])
+                .x_range([real.left_top[0], real.right_top[0]])
+                .y_domain([pic.left_top[1] * factor, pic.left_bottom[1] * factor])
+                .y_range([real.left_top[1], real.left_bottom[1]]);
+
+
+            // d3.select("svg")
+            //     .selectAll("polygon")
+            //     .data(data.features)
+            //     .enter()
+            //     .append("polygon")
+            //     .attr("points", function(d) {
+            //         return d.geometry.coordinates[0].map(dd => project.invert(dd).join(",")).join(" ");
+            //     })
+            //     .attr("fill", "none")
+            //     .attr("stroke","black")
+            //     .attr("stroke-width",1);
 
 
 
-    d3.select(".pick-up-table")
-        .selectAll("img.draggable")
-        .each(function(d) {
-            this.width = this.width * factor;
-            this.parentNode.style.width = this.width + "px";
-            this.parentNode.style.height = this.height + "px";
+            d3.select(".pick-up-table")
+                .selectAll(".pick-item")
+                .data(districts)
+                .enter()
+                .append("div")
+                .attr("class", "pick-item")
+                .append("img")
+                .attr("src", function(d) {return "data/Png_areas/b_" + d.area_name + ".png"})
+                .attr("class", "draggable")
+                .each(function(d){
+                    this.onload = function(e) {
+                        this.width = this.width * factor;
+                        this.parentNode.style.width = this.width + "px";
+                        this.parentNode.style.height = this.height + "px";
 
-            d3.select(this).datum({x: this.offsetLeft, y: this.offsetTop})
+                        d.x = this.offsetLeft;
+                        d.y = this.offsetTop;
+                        d.width = this.width;
+                        d.height = this.height;
+                    };
+                });
+
+
+            // d3.select(".pick-up-table")
+            //     .selectAll("img.draggable")
+            //     .each(function(d) {
+            //         this.width = this.width * factor;
+            //         this.parentNode.style.width = this.width + "px";
+            //         this.parentNode.style.height = this.height + "px";
+            //
+            //         d3.select(this).datum({
+            //             x: this.offsetLeft,
+            //             y: this.offsetTop,
+            //             width: this.width,
+            //             height: this.height
+            //         });
+            //     });
+
+            var container = d3.select("#drag_container");
+
+            d3.select(".pick-up-table")
+                .selectAll(".draggable")
+                .call(d3.drag()
+                    .container(container.node())
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+
+
+            container.on("click", function(){
+                console.log(project([d3.event.layerX, d3.event.layerY]));
+            });
+
+
+            function dragstarted(d) {
+                d3.select(this).classed("active", true);
+            }
+
+            function dragged(d) {
+                d3.select(this)
+                    .style("left", d3.event.x + "px")
+                    .style("top", d3.event.y + "px");
+
+                //
+                // var p = project([d3.event.x + d.width / 2, d3.event.y + d.height / 2]);
+                // var distance = turf.distance(p, [d.cx, d.cy], {units: "meters"});
+                // console.log(distance);
+            }
+
+            function dragended(d) {
+                //todo
+                // check if we met conditions
+
+
+                var p = project([d3.event.x + d.width / 2, d3.event.y + d.height / 2]);
+                var distance = turf.distance(p, [d.cx, d.cy], {units: "meters"});
+                console.log(distance);
+
+                if (distance > 500) {
+                    d3.select(this)
+                        .transition()
+                        .duration(700)
+                        .style("left", d.x + "px")
+                        .style("top", d.y + "px")
+                        .on("end", function() {
+                            d3.select(this)
+                                .classed("active", false)
+                                .style("left", null)
+                                .style("top", null);
+                        });
+                } else {
+                    var place = project.invert([d.cx, d.cy]);
+
+                    console.log(place)
+
+                    d3.select(this)
+                        .transition()
+                        .duration(700)
+                        .style("left", place[0] - d.width / 2 + "px")
+                        .style("top", place[1] - d.height / 2 + "px")
+                        .on("end", function() {
+                            d3.select(this)
+                                .classed("active", false)
+                                .classed("placed", true);
+                                // .style("left", null)
+                                // .style("top", null);
+                        });
+                }
+
+            }
+
+
+
+
+
         });
 
 
-    var container = d3.select("#drag_container");
 
-    d3.select(".pick-up-table")
-        .selectAll(".draggable")
-        .call(d3.drag()
-            .container(container.node())
-            .on("start", dragstarted)
-            .on("drag", dragged)
-            .on("end", dragended));
-
-
-    container.on("click", function(){
-        console.log(project([d3.event.layerX, d3.event.layerY]));
-    });
-
-
-
-    function dragstarted(d) {
-        d3.select(this).classed("active", true);
-    }
-
-    function dragged(d) {
-        d3.select(this)
-            .style("left", d3.event.x + "px")
-            .style("top", d3.event.y + "px");
-    }
-
-    function dragended(d) {
-        //todo
-        // check if we met conditions
-        
-
-
-
-        d3.select(this)
-            .transition()
-            .duration(700)
-            .style("left", d.x + "px")
-            .style("top", d.y + "px")
-            .on("end", function() {
-                d3.select(this)
-                    .classed("active", false)
-                    .style("left", null)
-                    .style("top", null);
-            });
-
-    }
 
 
     function projection() {
