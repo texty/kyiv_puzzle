@@ -54,7 +54,7 @@
 
 
 
-            d3.select(".pick-up-table")
+            var imgs = d3.select(".pick-up-table")
                 .selectAll(".pick-item")
                 .data(districts)
                 .enter()
@@ -69,28 +69,23 @@
                         this.parentNode.style.width = this.width + "px";
                         this.parentNode.style.height = this.height + "px";
 
-                        d.x = this.offsetLeft;
-                        d.y = this.offsetTop;
                         d.width = this.width;
                         d.height = this.height;
+
+                        d.loaded = true;
+
+                        if (imgs.filter(function(dd) { return !dd.loaded}).size() == 0) {
+                            // Значить всі картинки завантажились і можна розраховувати позиції
+                            console.log("LOADED");
+
+                            imgs.each(function(dd) {
+                                dd.x = this.offsetLeft;
+                                dd.y = this.offsetTop;
+                            });
+                        }
                     };
                 });
 
-
-            // d3.select(".pick-up-table")
-            //     .selectAll("img.draggable")
-            //     .each(function(d) {
-            //         this.width = this.width * factor;
-            //         this.parentNode.style.width = this.width + "px";
-            //         this.parentNode.style.height = this.height + "px";
-            //
-            //         d3.select(this).datum({
-            //             x: this.offsetLeft,
-            //             y: this.offsetTop,
-            //             width: this.width,
-            //             height: this.height
-            //         });
-            //     });
 
             var container = d3.select("#drag_container");
 
@@ -116,11 +111,6 @@
                 d3.select(this)
                     .style("left", d3.event.x + "px")
                     .style("top", d3.event.y + "px");
-
-                //
-                // var p = project([d3.event.x + d.width / 2, d3.event.y + d.height / 2]);
-                // var distance = turf.distance(p, [d.cx, d.cy], {units: "meters"});
-                // console.log(distance);
             }
 
             function dragended(d) {
@@ -158,8 +148,13 @@
                             d3.select(this)
                                 .classed("active", false)
                                 .classed("placed", true);
-                                // .style("left", null)
-                                // .style("top", null);
+                            
+                            d3.select(this.parentNode).classed("empty", true);
+
+                            imgs.each(function(dd) {
+                                dd.x = this.offsetLeft;
+                                dd.y = this.offsetTop;
+                            });
                         });
                 }
 
