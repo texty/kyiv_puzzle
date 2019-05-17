@@ -18,18 +18,56 @@
         right_bottom: [1850.616, 1231.967]
     };
 
-    var factor = document.getElementById("main_map").width / pic_size.width;
+    var factor
+        , project
 
-    var project = projection()
-        .x_domain([pic.left_top[0] * factor, pic.right_top[0] * factor])
-        .x_range([real.left_top[0], real.right_top[0]])
-        .y_domain([pic.left_top[1] * factor, pic.left_bottom[1] * factor])
-        .y_range([real.left_top[1], real.left_bottom[1]]);
+        ;
 
+    function rescale() {
+        var map_img = document.getElementById("main_map");
 
-    document.getElementById("main_map").onload = function() {
-        document.querySelector(".pick-up-table").style.height = this.height + "px";
-    };
+        factor = map_img.width / pic_size.width;
+
+        project = projection()
+            .x_domain([pic.left_top[0] * factor, pic.right_top[0] * factor])
+            .x_range([real.left_top[0], real.right_top[0]])
+            .y_domain([pic.left_top[1] * factor, pic.left_bottom[1] * factor])
+            .y_range([real.left_top[1], real.left_bottom[1]]);
+
+        document.querySelector(".pick-up-table").style.height = map_img.height + "px";
+        document.getElementById("map").height = map_img.height;
+    }
+
+    function rescaleDistricts() {
+        d3.select(".pick-up-table")
+            .selectAll(".pick-item img.draggable")
+            .each(function(d) {
+                this.width = d.orig_width * factor;
+                this.parentNode.style.width = this.width + "px";
+                this.parentNode.style.height = this.height + "px";
+
+                d.width = this.width;
+                d.height = this.height;
+
+                d.x = this.offsetLeft;
+                d.y = this.offsetTop;
+            });
+
+        d3.select(".pick-up-table")
+            .selectAll(".pick-item img.draggable.placed")
+            .each(function(d) {
+                var place = project.invert([d.cx, d.cy]);
+
+                d3.select(this)
+                    .style("left", place[0] - d.width / 2 + "px")
+                    .style("top", place[1] - d.height / 2 + "px")
+            });
+    }
+
+    rescale();
+
+    document.getElementById("main_map").onload = rescale;
+    window.addEventListener('resize', function() {rescale(); rescaleDistricts();}, true);
 
     d3.json("data/districts.geojson")
         .then(function(data) {
@@ -69,6 +107,9 @@
                 .attr("class", "draggable")
                 .each(function(d){
                     this.onload = function(e) {
+                        d.orig_width = this.width;
+                        d.orig_height = this.height;
+
                         this.width = this.width * factor;
                         this.parentNode.style.width = this.width + "px";
                         this.parentNode.style.height = this.height + "px";
@@ -134,6 +175,9 @@
                 console.log(distance);
 
                 if (distance > 500) {
+
+                    // Не вгадав
+
                     d3.select(this)
                         .transition()
                         .duration(700)
@@ -146,9 +190,10 @@
                                 .style("top", null);
                         });
                 } else {
-                    var place = project.invert([d.cx, d.cy]);
 
-                    console.log(place);
+                    // Вгадав
+
+                    var place = project.invert([d.cx, d.cy]);
 
                     d3.select(this)
                         .transition()
@@ -166,6 +211,8 @@
                                 dd.x = this.offsetLeft;
                                 dd.y = this.offsetTop;
                             });
+
+                            highlight_poly.classed("active", false);
                         });
                 }
             }
@@ -188,7 +235,6 @@
         p.invert = function(val) {
             return [x.invert(val[0]), y.invert(val[1])];
         };
-
 
         p.x_domain = function(_) {
             if (!arguments.length) return x.domain();
