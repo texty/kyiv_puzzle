@@ -68,6 +68,10 @@
     <div class="row justify-content-center">
         <p>Сука, ану іди сюда!</p>
     </div>
+
+    <div class="row justify-content-center">
+        <p class="stopwatch">00:00</p>
+    </div>
 </div>
 
 <!--<button id="show_svg">Показати границі</button>-->
@@ -88,7 +92,7 @@
 
 </style>
 
-<div class="container-fluid" style="margin-top: 3em; position: relative" id="drag_container">
+<div class="container-fluid" id="drag_container">
     <div class="row">
         <div class="col-10 map-container" id="map">
             <img src="data/start_clear.png" id="main_map" style="width: 100%; position: absolute; top:0; left: 0">
@@ -184,6 +188,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
 <script src="libs/share-behavior.js"></script>
 
+<script src="js/stopwatch.js"></script>
 <script src="js/game.js"></script>
 <script src="js/main.js"></script>
 

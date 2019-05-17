@@ -4,6 +4,8 @@
 }
 
 #drag_container {
+  position: relative;
+
   //overflow-y: visible;
   //overflow-x: hidden;
 }
@@ -71,4 +73,11 @@ svg {
       fill-opacity: 0.2;
     }
   }
+}
+
+.stopwatch {
+  font-family: DSEG, Verdana, sans-serif;
+  font-size: 2em;
+
+  color: #ff9900;
 }

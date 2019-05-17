@@ -23,6 +23,10 @@
 
         ;
 
+
+    var sw = stopwatch();
+
+
     function rescale() {
         var map_img = document.getElementById("main_map");
 
@@ -150,6 +154,7 @@
 
             function dragstarted(d) {
                 d3.select(this).classed("active", true);
+                sw.start()
             }
 
             function dragged(d) {

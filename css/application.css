@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "DSEG";
+  src: url(../fonts/fonts-DSEG_v045/DSEG7-Classic/DSEG7Classic-Bold.ttf) format("truetype");
+  font-weight: bold; }
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 14px; }
@@ -26,6 +30,9 @@ header {
         color: orange; }
   header .lang-link {
     color: #424242; }
+
+#drag_container {
+  position: relative; }
 
 .pick-up-table {
   display: flex;
@@ -59,6 +66,11 @@ svg polygon {
     stroke: none;
     fill: #ff9900;
     fill-opacity: 0.2; }
+
+.stopwatch {
+  font-family: DSEG, Verdana, sans-serif;
+  font-size: 2em;
+  color: #ff9900; }
 
 body {
   color: #424242; }
