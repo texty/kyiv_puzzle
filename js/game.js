@@ -20,11 +20,13 @@
 
     var factor
         , project
-
         ;
 
 
-    var sw = stopwatch();
+    var sw = stopwatch()
+        .onTick(function(v) {
+            d3.select(".stopwatch").text(v.value);
+        });
 
 
     function rescale() {
@@ -76,12 +78,14 @@
     d3.json("data/districts.geojson")
         .then(function(data) {
             var districts = data.features.map(function(d) {
+                var bbox = turf.bbox(d.geometry);
+
                 return {
                     id: d.properties.id,
                     area_name: d.properties.area_name,
-                    cx: d.properties.cx,
-                    cy: d.properties.cy,
-                    size: turf.area(turf.bboxPolygon(turf.bbox(d.geometry))),
+                    cx: (bbox[0] + bbox[2]) / 2,
+                    cy: (bbox[1] + bbox[3]) / 2,
+                    size: turf.area(turf.bboxPolygon(bbox)),
                     geometry: d.geometry
                 }
             }).sort((a, b) => b.size - a.size);

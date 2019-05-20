@@ -1,69 +1,61 @@
 
 function stopwatch (){
 
-    var sec = 0;
-    var min = 0;
-    var start = null;
-
     var format = d3.format("02d");
+    
+    var sec = 0
+        , min = 0
+        , active_timer = null
+        , progress
+        , _onTick = function() {}
+        , colon = true
+        ;
 
+    var step_size = 500;
 
     var r = function() {
 
-
-
-
     };
 
-    r.reset = function() {
+    r.stop = function() {
+        if (active_timer) clearInterval(active_timer);
+        
         sec = 0;
         min = 0;
-        var start = null;
 
         return r;
     };
 
-    r.step = function(seconds) {
-        var _min = Math.floor(seconds / 60);
-        var _sec = seconds % 60;
+    function step() {
+        progress += step_size;
+        var seconds = Math.floor(progress / 1000);
 
-        min += _min;
-        sec += _sec;
+        min = Math.floor(seconds / 60);
+        sec = seconds % 60;
 
-        return r;
-    };
+        colon = !colon;
 
-    function step(timestamp) {
-        if (!start) start = timestamp;
-        var seconds = Math.floor((timestamp - start)/10);
-
-        console.log(seconds)
-
-        var _min = Math.floor(seconds / 60);
-        var _sec = seconds % 60;
-
-        min = _min;
-        sec = _sec;
-
-        d3.select(".stopwatch").text(r.value());
-        // console.log(progress);
-
-        window.requestAnimationFrame(step);
+        if (_onTick) _onTick({min: min, sec: sec, value: r.value()})
     }
 
     r.start = function() {
-        if (!start) window.requestAnimationFrame(step);
-
+        if (!active_timer) {
+            progress = 0;
+            active_timer = setInterval(step, step_size);
+        }
 
         return r;
     };
 
-
     r.value = function() {
-        return format(min) + ":" + format(sec);
+        return format(min) + (colon ? ":" : " ") + format(sec);
     };
-
-
+    
+    r.onTick = function(_) {
+        if (!arguments.length) return _onTick;
+        _onTick = _;
+        return r;
+    };
 
     return r;
 }
