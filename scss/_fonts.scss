@@ -1,5 +1,26 @@
+
 @font-face {
-  font-family: "DSEG";
-  src: url(../fonts/fonts-DSEG_v045/DSEG7-Classic/DSEG7Classic-Bold.ttf) format("truetype");
+  font-family: "Elektratext";
+  src: url(../fonts/elektratext/ELEKTRATEXT.OTF) format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Elektratext";
+  src: url(../fonts/elektratext/ELEKTRATEXTBOLD.OTF) format("opentype");
   font-weight: bold;
+}
+
+@font-face {
+  font-family: "Elektratext";
+  src: url(../fonts/elektratext/ELEKTRATEXTBOLDITALIC.OTF) format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Elektratext";
+  src: url(../fonts/elektratext/ELEKTRATEXTITALIC.OTF) format("opentype");
+  font-weight: normal;
+  font-style: italic;
 }

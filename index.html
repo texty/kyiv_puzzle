@@ -61,54 +61,57 @@
 <div class="container-fluid main-title">
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <h3>Ти з якого района, блядь?</h3>
+            <h3>Ти з якого района?</h3>
         </div>
     </div>
 
     <div class="row justify-content-center">
-        <p>Сука, ану іди сюда!</p>
-    </div>
-
-    <div class="row justify-content-center">
-        <p class="stopwatch">00:00</p>
+        <p>Lorem ipsum dolor sir amet</p>
     </div>
 </div>
 
-<!--<button id="show_svg">Показати границі</button>-->
 
+<main>
+    <div class="container main-card-container" style="margin-top: 4em;">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-11 col-lg-10">
+                <div class="row justify-content-start">
+                    <div class="col-12 col-md-8 d-flex justify-content-center">
+                        <h3>Який це мікрорайон Києва?</h3>
+                    </div>
+                </div>
 
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 d-flex flex-column align-items-center">
+                        <div class="img-placeholder">
+                            <img src="data/Png_areas/b_Obolon.png" alt="">
+                        </div>
+                    </div>
 
-<!--<div class="container">-->
-    <!--<div class="row d-flex justify-content-center">-->
-        <!--<div class="col-12 col-md-8 col-lg-6">-->
-            <!--<p>Сука, ану іди сюда!</p>-->
-            <!--&lt;!&ndash;<p>26 травня 2019 року</p>&ndash;&gt;-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+                    <div class="col-12 col-md-4 d-flex flex-column justify-content-between">
+                        <img src="data/start_clear.png" alt="Київ" class="locator-map">
+                        <div class="answers">
+                            <button type="button" class="btn btn-outline-dark">Борщагівка</button>
+                            <button type="button" class="btn btn-outline-dark">Оболонь</button>
+                            <button type="button" class="btn btn-outline-dark">Нова Забудова (Голосіїво)</button>
+                            <button type="button" class="btn btn-outline-dark">Троєщина</button>
+                        </div>
+                    </div>
+                </div>
 
-<style>
-    svg {overflow: visible !important;}
-
-</style>
-
-<div class="container-fluid" id="drag_container">
-    <div class="row">
-        <div class="col-10 map-container" id="map">
-            <img src="data/start_clear.png" id="main_map" style="width: 100%; position: absolute; top:0; left: 0">
-            <img src="data/texts.png" style="width: 100%; position: absolute; top:0; left: 0; z-index: 1000">
-            <svg style="width: 100%; position: absolute; top:0; left: 0; z-index: 1001"></svg>
-        </div>
-
-        <div class="col-2 pick-up-table" style="position: unset;">
+                <div class="row justify-content-start">
+                    <div class="col-12 col-md-8 d-flex justify-content-center">
+                        <p class="description">Оболонь легко впізнати по характерній формі будинків на березі Дніпра. Таких немає у жодному іншому районі Києва</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</main>
 
 
 
 <div class="container">
-
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8">
             <div id="button">
@@ -172,20 +175,50 @@
             <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/2019/kyiv_puzzle/" class="share-btn"><i class="fab fa-twitter"></i></a>
         </div>
 
-        <div class="row justify-content-center">
-            <h3>Створено Текстами</h3>
-        </div>
+        <!--<div class="row justify-content-center">-->
+            <!--<h3>Створено Текстами</h3>-->
+        <!--</div>-->
 
         <div class="row justify-content-center">
             <div class="logo">
-                <a href="http://texty.org.ua/" target="_blank"><img src="image/logo.png" alt="texty.org.ua" style="max-width: 100%;"></a>
+                <a href="http://texty.org.ua/"><img src="image/logo.png" alt="texty.org.ua" style="max-width: 100%;"></a>
             </div>
         </div>
     </div>
 </div>
 
-<script src="libs/d3.js"></script>
+<script type="text/x-handlebars-template" id="question-card-template">
+    <div class="question-card">
+        <div class="question-counter text-center"><span class="current">{{question_number}}</span>/<span class="total">{{total}}</span></div>
+        <div class="question-image-div six-four">
+            <img class="question-image content" src="resources/imgs/{{question_number}}.jpg" alt="{{attrib}}">
+        </div>
+        <div class="question-image-attrib text-right">{{attrib}}</div>
+        <div class="question-text">{{question_text}}</div>
+        <div class="answers-block">
+            {{#each answers}}
+            <div class="answer-div">
+                <div class="answer-radio-label">
+                    <input type="radio" name="answer-radio-group" class="radiobtn answer-pip" id="radio-ans-{{this.number}}" value="{{this.number}}" autocomplete="off"/>
+                    <label class="answer-text" for="radio-ans-{{this.number}}">{{this.text}}</label>
+                </div>
+                <div class="answer-stat-wrapper text-center">
+                    <div class="answer-stat">{{this.stat}}%</div>
+                </div>
+                <div class="answer-comment">{{this.comment}}</div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="next-button-div card-button-div text-center">
+            <button type="button" class="btn btn-success"></button>
+        </div>
+    </div>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+<script src="libs/d3.js"></script>
 <script src="libs/share-behavior.js"></script>
 
 <script src="js/stopwatch.js"></script>

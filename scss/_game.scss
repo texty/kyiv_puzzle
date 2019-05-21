@@ -1,83 +1,65 @@
-#main_map {
-  //background-color: #dbdbdb;
+main {
+  font-family: Elektratext, "Open Sans", sans-serif;
+
+
+
+
 
 }
 
-#drag_container {
-  position: relative;
 
-  //overflow-y: visible;
-  //overflow-x: hidden;
-}
+.main-card-container {
 
-.pick-up-table {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-items: center;
-  flex-wrap: wrap;
-
-  overflow: hidden;
-}
-
-.pick-item {
-  margin: 10px;
-
-  &.empty {
-    height: 0 !important;
-    width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  h3 {
+    font-weight: normal;
+    margin: 0 0 1em;
+    text-transform: uppercase;
   }
 
+
+  .description {
+    margin-top: 0.7em;
+
+  }
+
+
 }
 
 
-.draggable {
-  cursor: pointer;
-  color: #F3A587;
 
-  &.active {
-    position: absolute;
-  }
+.card-placeholder {
+  border: 1px solid black;
 
-  &.placed {
-    position: absolute;
 
-    filter:
-            /* for demonstration purposes; originals not entirely black */
-            //contrast(1000%)
-              /* black to white */
-            invert(100%)
-              /* white to off-white */
-            sepia(100%)
-              /* off-white to yellow */
-            saturate(400)
-              //saturate(1000000%)
-              /* do whatever you want with yellow */
 
-            hue-rotate(-64deg);
+}
+
+.img-placeholder {
+  border: 1px solid #aaa;
+
+
+  height: 70vh;
+  width: 80vh;
+
+  padding: 2em;
+
+  img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: contain;
   }
 }
 
-
-svg {
-  polygon {
-    fill: none;
-    stroke: none;
-
-    &.active {
-      stroke: none;
-      //stroke-width: 1;
-      fill: #ff9900;
-      fill-opacity: 0.2;
-    }
-  }
+.locator-map {
+  width: 100%;
 }
 
-.stopwatch {
-  font-family: DSEG, Verdana, sans-serif;
-  font-size: 2em;
 
-  color: #ff9900;
+.answers button {
+  width: 100%;
+  text-transform: uppercase;
+  margin-top: 1em;
+
+
 }

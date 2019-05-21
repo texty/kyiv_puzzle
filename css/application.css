@@ -1,7 +1,21 @@
 @font-face {
-  font-family: "DSEG";
-  src: url(../fonts/fonts-DSEG_v045/DSEG7-Classic/DSEG7Classic-Bold.ttf) format("truetype");
+  font-family: "Elektratext";
+  src: url(../fonts/elektratext/ELEKTRATEXT.OTF) format("opentype");
+  font-weight: normal; }
+@font-face {
+  font-family: "Elektratext";
+  src: url(../fonts/elektratext/ELEKTRATEXTBOLD.OTF) format("opentype");
   font-weight: bold; }
+@font-face {
+  font-family: "Elektratext";
+  src: url(../fonts/elektratext/ELEKTRATEXTBOLDITALIC.OTF) format("opentype");
+  font-weight: bold;
+  font-style: italic; }
+@font-face {
+  font-family: "Elektratext";
+  src: url(../fonts/elektratext/ELEKTRATEXTITALIC.OTF) format("opentype");
+  font-weight: normal;
+  font-style: italic; }
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 14px; }
@@ -31,51 +45,41 @@ header {
   header .lang-link {
     color: #424242; }
 
-#drag_container {
-  position: relative; }
+main {
+  font-family: Elektratext, "Open Sans", sans-serif; }
 
-.pick-up-table {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-items: center;
-  flex-wrap: wrap;
-  overflow: hidden; }
+.main-card-container h3 {
+  font-weight: normal;
+  margin: 0 0 1em;
+  text-transform: uppercase; }
+.main-card-container .description {
+  margin-top: 0.7em; }
 
-.pick-item {
-  margin: 10px; }
-  .pick-item.empty {
-    height: 0 !important;
-    width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important; }
+.card-placeholder {
+  border: 1px solid black; }
 
-.draggable {
-  cursor: pointer;
-  color: #F3A587; }
-  .draggable.active {
-    position: absolute; }
-  .draggable.placed {
-    position: absolute;
-    filter: invert(100%) sepia(100%) saturate(400) hue-rotate(-64deg); }
+.img-placeholder {
+  border: 1px solid #aaa;
+  height: 70vh;
+  width: 80vh;
+  padding: 2em; }
+  .img-placeholder img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain; }
 
-svg polygon {
-  fill: none;
-  stroke: none; }
-  svg polygon.active {
-    stroke: none;
-    fill: #ff9900;
-    fill-opacity: 0.2; }
+.locator-map {
+  width: 100%; }
 
-.stopwatch {
-  font-family: DSEG, Verdana, sans-serif;
-  font-size: 2em;
-  color: #ff9900; }
+.answers button {
+  width: 100%;
+  text-transform: uppercase;
+  margin-top: 1em; }
 
 body {
-  color: #424242; }
+  color: #1f1f1f; }
   body svg text {
-    fill: #424242; }
+    fill: #1f1f1f; }
 
 .main-title {
   min-height: 10em;
@@ -109,9 +113,9 @@ a.dotted {
     padding: 15px;
     font-size: 2.5em; }
   .footer .share-btn:hover {
-    color: #424242; }
+    color: #1f1f1f; }
     .footer .share-btn:hover i {
-      border-color: #424242; }
+      border-color: #1f1f1f; }
 
 .infobox {
   position: absolute;
