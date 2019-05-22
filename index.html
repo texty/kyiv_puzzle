@@ -58,22 +58,9 @@
 </header>
 
 
-<!--<div class="container-fluid main-title">-->
-    <!--<div class="row">-->
-        <!--<div class="col-12 d-flex justify-content-center">-->
-            <!--<h3>Ти з якого района?</h3>-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="row justify-content-center">-->
-        <!--<p>Lorem ipsum dolor sir amet</p>-->
-    <!--</div>-->
-<!--</div>-->
-
-
 <main>
-    <div class="container main-card-container" style="height: 90vh;">
-        <div class="row justify-content-center h-100 align-content-center">
+    <div class="container main-card-container first-screen d-flex" style="min-height: 90vh;">
+        <div class="row justify-content-center align-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-5 d-flex flex-column align-items-center">
                 <h3 class="main-title">Київські візерунки</h3>
 
@@ -83,52 +70,11 @@
 
                 <p class="authors text-center">Автори: Надя Кельм, Влад Герасименко</p>
 
-                <button type="button" class="btn btn-play">ГРАТИ</button>
+                <button type="button" class="btn btn-play" id="btn-game-start" autofocus>ГРАТИ</button>
             </div>
         </div>
     </div>
 </main>
-
-
-
-<main>
-    <div class="container main-card-container" style="margin-top: 4em;">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-11 col-lg-10">
-                <div class="row justify-content-start">
-                    <div class="col-12 col-md-8 d-flex justify-content-center">
-                        <h3>Який це мікрорайон Києва?</h3>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-8 d-flex flex-column align-items-center">
-                        <div class="img-placeholder">
-                            <img src="data/Png_areas/b_Obolon.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4 d-flex flex-column justify-content-between">
-                        <img src="data/start_clear.png" alt="Київ" class="locator-map d-none d-md-block">
-                        <div class="answers">
-                            <button type="button" class="btn btn-outline-dark">Борщагівка</button>
-                            <button type="button" class="btn btn-outline-dark">Оболонь</button>
-                            <button type="button" class="btn btn-outline-dark">Нова Забудова (Голосіїво)</button>
-                            <button type="button" class="btn btn-outline-dark">Троєщина</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-start">
-                    <div class="col-12 col-md-8 d-flex justify-content-center">
-                        <p class="description">Оболонь легко впізнати по характерній формі будинків на березі Дніпра. Таких немає у жодному іншому районі Києва</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-
 
 
 <div class="container">
@@ -207,32 +153,74 @@
     </div>
 </div>
 
+<!--<script type="text/x-handlebars-template" id="question-card-template">-->
+    <!--<div class="question-card">-->
+        <!--<div class="question-counter text-center"><span class="current">{{question_number}}</span>/<span class="total">{{total}}</span></div>-->
+        <!--<div class="question-image-div six-four">-->
+            <!--<img class="question-image content" src="resources/imgs/{{question_number}}.jpg" alt="{{attrib}}">-->
+        <!--</div>-->
+        <!--<div class="question-image-attrib text-right">{{attrib}}</div>-->
+        <!--<div class="question-text">{{question_text}}</div>-->
+        <!--<div class="answers-block">-->
+            <!--{{#each answers}}-->
+            <!--<div class="answer-div">-->
+                <!--<div class="answer-radio-label">-->
+                    <!--<input type="radio" name="answer-radio-group" class="radiobtn answer-pip" id="radio-ans-{{this.number}}" value="{{this.number}}" autocomplete="off"/>-->
+                    <!--<label class="answer-text" for="radio-ans-{{this.number}}">{{this.text}}</label>-->
+                <!--</div>-->
+                <!--<div class="answer-stat-wrapper text-center">-->
+                    <!--<div class="answer-stat">{{this.stat}}%</div>-->
+                <!--</div>-->
+                <!--<div class="answer-comment">{{this.comment}}</div>-->
+            <!--</div>-->
+            <!--{{/each}}-->
+        <!--</div>-->
+
+        <!--<div class="next-button-div card-button-div text-center">-->
+            <!--<button type="button" class="btn btn-success"></button>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</script>-->
+
 <script type="text/x-handlebars-template" id="question-card-template">
-    <div class="question-card">
-        <div class="question-counter text-center"><span class="current">{{question_number}}</span>/<span class="total">{{total}}</span></div>
-        <div class="question-image-div six-four">
-            <img class="question-image content" src="resources/imgs/{{question_number}}.jpg" alt="{{attrib}}">
-        </div>
-        <div class="question-image-attrib text-right">{{attrib}}</div>
-        <div class="question-text">{{question_text}}</div>
-        <div class="answers-block">
-            {{#each answers}}
-            <div class="answer-div">
-                <div class="answer-radio-label">
-                    <input type="radio" name="answer-radio-group" class="radiobtn answer-pip" id="radio-ans-{{this.number}}" value="{{this.number}}" autocomplete="off"/>
-                    <label class="answer-text" for="radio-ans-{{this.number}}">{{this.text}}</label>
-                </div>
-                <div class="answer-stat-wrapper text-center">
-                    <div class="answer-stat">{{this.stat}}%</div>
-                </div>
-                <div class="answer-comment">{{this.comment}}</div>
+    <div class="container main-card-container first-screen d-flex flex-column justify-content-center" style="min-height: 100vh;">
+        <div class="row justify-content-center flex-md-row-reverse">
+            <div class="col-12 col-md-4 question-counter text-center">
+                <span class="current">{{question_number}}</span>/<span class="total">{{total}}</span>
             </div>
-            {{/each}}
+            <div class="col-12 col-md-8 d-flex justify-content-center">
+                <h3>Який це мікрорайон Києва?</h3>
+            </div>
         </div>
 
-        <div class="next-button-div card-button-div text-center">
-            <button type="button" class="btn btn-success"></button>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 d-flex justify-content-center">
+                <div class="img-placeholder">
+                    <img src="{{img_path}}" alt="Вгадай мікрорайон по формі будинків">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center">
+                <img src="data/start_clear.png" alt="Київ" class="locator-map d-none d-md-block">
+
+                <div class="answers">
+                    <button type="button" class="btn btn-outline-dark">Борщагівка</button>
+                    <button type="button" class="btn btn-outline-dark">Оболонь</button>
+                    <button type="button" class="btn btn-outline-dark">Нова Забудова (Голосіїво)</button>
+                    <button type="button" class="btn btn-outline-dark">Троєщина</button>
+                </div>
+            </div>
         </div>
+
+        <div class="row justify-content-start">
+            <div class="col-12 col-md-8 d-flex justify-content-center">
+                <p class="description">Оболонь легко впізнати по характерній формі будинків на березі Дніпра. Таких немає у жодному іншому районі Києва</p>
+            </div>
+            <div class="col-12 col-md-4 d-flex flex-column justify-content-between">
+                <button type="button" class="btn btn-info" id="btn-next-question">Наступне питання</button>
+            </div>
+        </div>
+
     </div>
 </script>
 
@@ -267,20 +255,6 @@
 <script src="js/stopwatch.js"></script>
 <script src="js/game.js"></script>
 <script src="js/main.js"></script>
-
-
-<script>
-
-//    d3.select("svg").datum({show: false})
-//            .style("opacity", d => d.show ? "1" : "0");
-//
-//    d3.select("button#show_svg").on("click", function(){
-//        d3.select("svg")
-//                .each(d => d.show = !d.show)
-//                .style("opacity", d => d.show ? "1" : "0");
-//    })
-
-</script>
 
 
 <script type="text/javascript">

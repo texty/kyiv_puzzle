@@ -60,8 +60,9 @@ main {
 
 .img-placeholder {
   border: 1px solid #aaa;
-  height: 70vh;
-  width: 80vh;
+  height: 30em;
+  width: 40em;
+  max-width: 100%;
   padding: 2em; }
   .img-placeholder img {
     height: 100%;
@@ -69,12 +70,16 @@ main {
     object-fit: contain; }
 
 .locator-map {
-  width: 100%; }
+  max-width: 100%;
+  max-height: 10em; }
 
 .answers button {
   width: 100%;
   text-transform: uppercase;
   margin-top: 1em; }
+
+.question-counter {
+  font-size: 1.5em; }
 
 body {
   color: #1f1f1f; }
