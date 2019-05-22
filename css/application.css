@@ -81,15 +81,26 @@ body {
   body svg text {
     fill: #1f1f1f; }
 
-.main-title {
-  min-height: 10em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
-  .main-title h3 {
-    font-size: 2.3em;
-    font-weight: 800;
-    text-align: center; }
+h3.main-title {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.5em; }
+
+.description p {
+  font-size: 1.4em;
+  margin-bottom: 1.5em; }
+
+.authors {
+  text-transform: uppercase;
+  font-size: 1em;
+  margin-bottom: 1.5em; }
+
+.btn-play {
+  color: #000;
+  background-color: #7BFD43;
+  border-color: #7BFD43;
+  padding-left: 3em;
+  padding-right: 3em; }
 
 h4 {
   font-weight: 300; }
@@ -155,10 +166,5 @@ p {
   @media (max-width: 700px) {
     .desktop {
       display: none; } }
-
-select#chart-select {
-  border: 1px solid #777;
-  background-color: #e8e8e8;
-  cursor: help; }
 
 /*# sourceMappingURL=application.css.map */
