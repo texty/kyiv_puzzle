@@ -189,7 +189,7 @@
                 <span class="current">{{question_number}}</span>/<span class="total">{{total}}</span>
             </div>
             <div class="col-12 col-md-8 d-flex justify-content-center">
-                <h3>Який це мікрорайон Києва?</h3>
+                <h3>{{text}}</h3>
             </div>
         </div>
 
@@ -204,20 +204,19 @@
                 <img src="data/start_clear.png" alt="Київ" class="locator-map d-none d-md-block">
 
                 <div class="answers">
-                    <button type="button" class="btn btn-outline-dark">Борщагівка</button>
-                    <button type="button" class="btn btn-outline-dark">Оболонь</button>
-                    <button type="button" class="btn btn-outline-dark">Нова Забудова (Голосіїво)</button>
-                    <button type="button" class="btn btn-outline-dark">Троєщина</button>
+                    {{#each answers}}
+                    <button type="button" class="btn btn-outline-dark">{{this}}</button>
+                    {{/each}}
                 </div>
             </div>
         </div>
 
-        <div class="row justify-content-start">
+        <div class="row justify-content-start" style="min-height: 8em;">
             <div class="col-12 col-md-8 d-flex justify-content-center">
-                <p class="description">Оболонь легко впізнати по характерній формі будинків на березі Дніпра. Таких немає у жодному іншому районі Києва</p>
+                <p class="description d-none">{{{description}}}</p>
             </div>
             <div class="col-12 col-md-4 d-flex flex-column justify-content-between">
-                <button type="button" class="btn btn-info" id="btn-next-question">Наступне питання</button>
+                <button type="button" class="btn btn-info" id="btn-next-question" disabled>Наступне питання</button>
             </div>
         </div>
 
@@ -252,7 +251,7 @@
 <script src="libs/d3.js"></script>
 <script src="libs/share-behavior.js"></script>
 
-<script src="js/stopwatch.js"></script>
+<script src="js/scenario.js"></script>
 <script src="js/game.js"></script>
 <script src="js/main.js"></script>
 

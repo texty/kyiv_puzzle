@@ -10,11 +10,18 @@ main {
 
 .main-card-container {
 
-  h3 {
+  h3.main-title {
     font-weight: normal;
     margin: 0 0 1em;
     text-transform: uppercase;
   }
+
+  h3 {
+    font-weight: normal;
+    margin: 0 0 0.5em;
+    font-size: 1.7em;
+  }
+
 
 
   .description {
@@ -56,11 +63,24 @@ main {
 
 
 .answers button {
+  color: black;
   width: 100%;
   text-transform: uppercase;
   margin-top: 1em;
+
+  &.ans-wrong {
+    background-color: #010101;
+    opacity: 1 !important;
+    color: white;
+  }
+
+  &.ans-correct {
+    background-color: #7bfd43;
+    opacity: 1 !important;
+    color: black;
+  }
 }
 
 .question-counter {
-  font-size: 1.5em;
+  font-size: 1.7em;
 }

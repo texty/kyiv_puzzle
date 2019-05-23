@@ -48,10 +48,14 @@ header {
 main {
   font-family: Elektratext, "Open Sans", sans-serif; }
 
-.main-card-container h3 {
+.main-card-container h3.main-title {
   font-weight: normal;
   margin: 0 0 1em;
   text-transform: uppercase; }
+.main-card-container h3 {
+  font-weight: normal;
+  margin: 0 0 0.5em;
+  font-size: 1.7em; }
 .main-card-container .description {
   margin-top: 0.7em; }
 
@@ -74,12 +78,21 @@ main {
   max-height: 10em; }
 
 .answers button {
+  color: black;
   width: 100%;
   text-transform: uppercase;
   margin-top: 1em; }
+  .answers button.ans-wrong {
+    background-color: #010101;
+    opacity: 1 !important;
+    color: white; }
+  .answers button.ans-correct {
+    background-color: #7bfd43;
+    opacity: 1 !important;
+    color: black; }
 
 .question-counter {
-  font-size: 1.5em; }
+  font-size: 1.7em; }
 
 body {
   color: #1f1f1f; }
