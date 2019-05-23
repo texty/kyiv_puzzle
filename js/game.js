@@ -32,13 +32,17 @@ document.getElementById("btn-game-start").addEventListener("click", function(){
 
 
 function renderQuestion(q_idx) {
-    card_container.html(template(scenario[q_idx]));
+    var q = scenario[q_idx];
+    card_container.html(template(q));
+    
+    card_container
+        .selectAll(".question-counter span")
+        .classed("active", (d, i) => i === q_idx);
 
     var buttons = card_container
         .selectAll(".answers button")
         .data([0, 1, 2, 3])
         .on("click", function(selected) {
-            var q = scenario[q_idx];
 
             if (selected === q.correct) {
                 // correct
@@ -72,6 +76,7 @@ function renderQuestion(q_idx) {
         });
 
     card_container.node().scrollIntoView(true);
+    if (q.color) preload(q.img_color_path);
 }
 
 function renderFinish() {
@@ -88,3 +93,9 @@ function offset(el) {
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 }
 
+function preload(image_path) {
+    if (document.images) {
+        var img1 = new Image();
+        img1.src = image_path;
+    }
+}

@@ -19,7 +19,8 @@ main {
   h3 {
     font-weight: normal;
     margin: 0 0 0.5em;
-    font-size: 1.7em;
+    font-size: 1.4em;
+    text-transform: uppercase;
   }
 
 
@@ -36,6 +37,11 @@ main {
 
 .card-placeholder {
   border: 1px solid black;
+}
+
+.left-wrapper {
+  width: 40em;
+  max-width: 100%;
 }
 
 .img-placeholder {
@@ -81,6 +87,23 @@ main {
   }
 }
 
+.btn-info {
+  text-transform: uppercase;
+  color: black;
+  background-color: #94C9FC;
+
+  &.disabled, &:disabled {
+    color: #3d3d3d;
+  }
+
+}
+
 .question-counter {
-  font-size: 1.7em;
+  font-size: 1.1em;
+  color: #aaa;
+  margin-bottom: 0.5em;
+
+  .active {
+    color: #7bfd43;
+  }
 }

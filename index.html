@@ -181,8 +181,65 @@
         <!--</div>-->
     <!--</div>-->
 <!--</script>-->
+        <!--<div class="row justify-content-center flex-md-row-reverse">-->
+            <!--<div class="col-12 col-md-4 question-counter text-center">-->
+                <!--<span class="current">{{question_number}}</span>/<span class="total">{{total}}</span>-->
+            <!--</div>-->
+            <!--<div class="col-12 col-md-8 d-flex justify-content-center">-->
+            <!--</div>-->
+        <!--</div>-->
 
 <script type="text/x-handlebars-template" id="question-card-template">
+    <div class="container main-card-container first-screen d-flex flex-column justify-content-center" style="min-height: 100vh;">
+
+        <div class="row">
+            <div class="col-12 col-md-8 d-flex justify-content-center">
+                <div class="left-wrapper d-flex flex-column align-items-center">
+                    <div class="question-counter d-flex w-100 justify-content-between">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                        <span>6</span>
+                        <span>7</span>
+                        <span>8</span>
+                        <span>9</span>
+                        <span>10</span>
+                        <!--<span class="current">{{question_number}}</span>/<span class="total">{{total}}</span>-->
+                    </div>
+
+                    <h3>{{text}}</h3>
+
+                    <div class="img-placeholder">
+                        <img src="{{img_path}}" alt="Вгадай мікрорайон по формі будинків">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-between">
+                <img src="data/start_clear.png" alt="Київ" class="locator-map d-none d-md-block">
+
+                <div class="answers w-100">
+                    {{#each answers}}
+                    <button type="button" class="btn btn-outline-dark">{{this}}</button>
+                    {{/each}}
+                </div>
+
+                <button type="button" class="btn btn-info w-100" id="btn-next-question" disabled>{{next_button_text}}</button>
+            </div>
+
+            <div class="col-12 col-md-8 d-flex justify-content-center" style="min-height: 8em;">
+                <div class="left-wrapper text-center">
+                    <p class="description d-none">{{{description}}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="final-card-template">
     <div class="container main-card-container first-screen d-flex flex-column justify-content-center" style="min-height: 100vh;">
         <div class="row justify-content-center flex-md-row-reverse">
             <div class="col-12 col-md-4 question-counter text-center">
@@ -216,7 +273,7 @@
                 <p class="description d-none">{{{description}}}</p>
             </div>
             <div class="col-12 col-md-4 d-flex flex-column justify-content-between">
-                <button type="button" class="btn btn-info" id="btn-next-question" disabled>{{next_button_text}}</button>
+                <button type="button" class="btn btn-info w-100" id="btn-next-question" disabled>{{next_button_text}}</button>
             </div>
         </div>
 

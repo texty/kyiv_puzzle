@@ -55,12 +55,17 @@ main {
 .main-card-container h3 {
   font-weight: normal;
   margin: 0 0 0.5em;
-  font-size: 1.7em; }
+  font-size: 1.4em;
+  text-transform: uppercase; }
 .main-card-container .description {
   margin-top: 0.7em; }
 
 .card-placeholder {
   border: 1px solid black; }
+
+.left-wrapper {
+  width: 40em;
+  max-width: 100%; }
 
 .img-placeholder {
   border: 1px solid #aaa;
@@ -91,8 +96,19 @@ main {
     opacity: 1 !important;
     color: black; }
 
+.btn-info {
+  text-transform: uppercase;
+  color: black;
+  background-color: #94C9FC; }
+  .btn-info.disabled, .btn-info:disabled {
+    color: #3d3d3d; }
+
 .question-counter {
-  font-size: 1.7em; }
+  font-size: 1.1em;
+  color: #aaa;
+  margin-bottom: 0.5em; }
+  .question-counter .active {
+    color: #7bfd43; }
 
 body {
   color: #1f1f1f; }
