@@ -1,8 +1,8 @@
 var source   = document.getElementById("question-card-template").innerHTML;
 var template = Handlebars.compile(source);
 
-var img_folder = "data/areas_one_size/";
-var img_color_folder = "data/areas_one_size/add_info/";
+var img_folder = "data/districts/";
+var img_color_folder = "data/districts_color/";
 var img_locator_folder = "data/map/";
 
 var questions_total = 10;
