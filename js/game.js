@@ -3,8 +3,13 @@ var template = Handlebars.compile(source);
 
 var img_folder = "data/areas_one_size/";
 var img_color_folder = "data/areas_one_size/add_info/";
+var img_locator_folder = "data/map/";
 
 var questions_total = 10;
+
+var locator_imgs = ["clear.png"];
+window.scenario.forEach(q => locator_imgs.push(q.img + ".png"));
+
 
 var scenario = window.scenario.map(function(q, i) {
     return {
@@ -12,12 +17,15 @@ var scenario = window.scenario.map(function(q, i) {
         question_number: i + 1,
         img_path: img_folder + q.img + ".png",
         img_color_path: img_color_folder + "color_" + q.img + ".png",
+        img_locator_path: img_locator_folder + q.img + ".png",
         description: q.descr,
         text: q.text,
         answers: [q.ans0, q.ans1, q.ans2, q.ans3],
         correct: q.correct,
         color: q.color,
-        next_button_text: i < questions_total - 1 ? "Наступне питання" : "Показати результат"
+        next_button_text: i < questions_total - 1 ? "Наступне питання" : "Показати результат",
+        locator_before: locator_imgs.slice(0, i + 1)
+
     }
 });
 
@@ -75,6 +83,9 @@ function renderQuestion(q_idx) {
                     .select(".img-placeholder img")
                     .attr("src", q.img_color_path)
             }
+
+            card_container.select(".locator-map").append("img").attr("src", q.img_locator_path);
+
         });
 
     card_container.node().scrollIntoView(true);

@@ -208,7 +208,9 @@
 
             <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-between">
                 <div class="locator-map d-none d-md-block text-center">
-                    <img src="data/map/clear.png" alt="Київ">
+                    {{#each locator_before}}
+                    <img src="data/map/{{this}}" alt="">
+                    {{/each}}
                 </div>
 
 
