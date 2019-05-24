@@ -27,7 +27,7 @@ main {
 
   .description {
     margin-top: 0.7em;
-
+    font-size: 1em;
   }
 
 
@@ -42,6 +42,7 @@ main {
 .left-wrapper {
   width: 40em;
   max-width: 100%;
+  min-height: 8em;
 }
 
 .img-placeholder {
@@ -51,6 +52,7 @@ main {
   width: 40em;
 
   max-width: 100%;
+  margin-bottom: 0.5em;
 
   padding: 2em;
 
@@ -63,16 +65,33 @@ main {
 }
 
 .locator-map {
-  max-width: 100%;
-  max-height: 10em;
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  //max-height: 10em;
+
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
+.answers {
+  display: grid;
+  grid-template-rows: minmax(4em, max-content) minmax(4em, max-content);
+  grid-template-columns: 50fr 50fr;
+  grid-gap: 1em;
+  margin-bottom: 0.5em;
+}
 
 .answers button {
   color: black;
   width: 100%;
   text-transform: uppercase;
-  margin-top: 1em;
+  white-space: normal;
+  padding: 0;
 
   &.ans-wrong {
     background-color: #010101;
@@ -90,7 +109,9 @@ main {
 .btn-info {
   text-transform: uppercase;
   color: black;
-  background-color: #94C9FC;
+  border-color: black;
+  background-color: white;
+  margin-top: 2.5em;
 
   &.disabled, &:disabled {
     color: #3d3d3d;
@@ -101,9 +122,19 @@ main {
 .question-counter {
   font-size: 1.1em;
   color: #aaa;
-  margin-bottom: 0.5em;
 
   .active {
     color: #7bfd43;
   }
+}
+
+@media #{$brk-spnarrow} {
+  .btn-info {
+    margin-top: 0 !important;
+  }
+
+  .left-wrapper {
+    min-height: unset !important;
+  }
+
 }

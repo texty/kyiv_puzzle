@@ -26,6 +26,7 @@ var q_index = 0;
 var card_container = d3.select("main");
 
 document.getElementById("btn-game-start").addEventListener("click", function(){
+    d3.select(".first-screen").classed("first-screen", false);
     renderQuestion(0)
 });
 
@@ -63,6 +64,7 @@ function renderQuestion(q_idx) {
             card_container
                 .select("#btn-next-question")
                 .attr("disabled", null)
+                .classed("d-none", false)
                 .on("click", function() {
                     if (q_idx === questions_total - 1) renderFinish();
                     else renderQuestion(q_idx + 1);

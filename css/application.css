@@ -58,20 +58,23 @@ main {
   font-size: 1.4em;
   text-transform: uppercase; }
 .main-card-container .description {
-  margin-top: 0.7em; }
+  margin-top: 0.7em;
+  font-size: 1em; }
 
 .card-placeholder {
   border: 1px solid black; }
 
 .left-wrapper {
   width: 40em;
-  max-width: 100%; }
+  max-width: 100%;
+  min-height: 8em; }
 
 .img-placeholder {
   border: 1px solid #aaa;
   height: 30em;
   width: 40em;
   max-width: 100%;
+  margin-bottom: 0.5em;
   padding: 2em; }
   .img-placeholder img {
     height: 100%;
@@ -79,14 +82,28 @@ main {
     object-fit: contain; }
 
 .locator-map {
-  max-width: 100%;
-  max-height: 10em; }
+  position: relative;
+  width: 100%;
+  max-width: 250px; }
+  .locator-map img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.answers {
+  display: grid;
+  grid-template-rows: minmax(4em, max-content) minmax(4em, max-content);
+  grid-template-columns: 50fr 50fr;
+  grid-gap: 1em;
+  margin-bottom: 0.5em; }
 
 .answers button {
   color: black;
   width: 100%;
   text-transform: uppercase;
-  margin-top: 1em; }
+  white-space: normal;
+  padding: 0; }
   .answers button.ans-wrong {
     background-color: #010101;
     opacity: 1 !important;
@@ -99,17 +116,24 @@ main {
 .btn-info {
   text-transform: uppercase;
   color: black;
-  background-color: #94C9FC; }
+  border-color: black;
+  background-color: white;
+  margin-top: 2.5em; }
   .btn-info.disabled, .btn-info:disabled {
     color: #3d3d3d; }
 
 .question-counter {
   font-size: 1.1em;
-  color: #aaa;
-  margin-bottom: 0.5em; }
+  color: #aaa; }
   .question-counter .active {
     color: #7bfd43; }
 
+@media (max-width: 767px) {
+  .btn-info {
+    margin-top: 0 !important; }
+
+  .left-wrapper {
+    min-height: unset !important; } }
 body {
   color: #1f1f1f; }
   body svg text {
@@ -131,10 +155,19 @@ h3.main-title {
 
 .btn-play {
   color: #000;
-  background-color: #7BFD43;
-  border-color: #7BFD43;
+  background-color: #24FD59;
+  border-color: #24FD59;
   padding-left: 3em;
   padding-right: 3em; }
+
+.cover-side {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .cover-side.left-side {
+    background-image: url("../image/left_pic.png"); }
+  .cover-side.right-side {
+    background-image: url("../image/right_pic.png"); }
 
 h4 {
   font-weight: 300; }

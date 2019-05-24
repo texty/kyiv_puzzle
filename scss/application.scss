@@ -32,18 +32,34 @@ h3.main-title {
 
 .btn-play {
   color: #000;
-  background-color: #7BFD43;
-  border-color: #7BFD43;
+  background-color: #24FD59;
+  border-color: #24FD59;
   padding-left: 3em;
   padding-right: 3em;
 }
+//
+//.first-screen {
+//  //background-size: cover;
+//  background-image: url("../image/game_start.png");
+//  background-position: center;
+//  background-repeat: no-repeat;
+//}
 
-.first-screen {
-  //background-size: cover;
-  //background-image: url("../image/game_start.png");
-  //background-position: center;
-  //background-repeat: no-repeat;
+.cover-side {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.left-side {
+    background-image: url("../image/left_pic.png");
+  }
+
+  &.right-side {
+    background-image: url("../image/right_pic.png");
+  }
+
 }
+
 
 h4 {
   font-weight: 300;
