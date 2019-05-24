@@ -25,11 +25,10 @@ var scenario = window.scenario.map(function(q, i) {
         color: q.color,
         next_button_text: i < questions_total - 1 ? "Наступне питання" : "Показати результат",
         locator_before: locator_imgs.slice(0, i + 1)
-
     }
 });
 
-var q_index = 0;
+var correct_count = 0;
 
 var card_container = d3.select("main");
 
@@ -37,8 +36,6 @@ document.getElementById("btn-game-start").addEventListener("click", function(){
     d3.select(".first-screen").classed("first-screen", false);
     renderQuestion(0)
 });
-
-
 
 function renderQuestion(q_idx) {
     var q = scenario[q_idx];
@@ -52,10 +49,10 @@ function renderQuestion(q_idx) {
         .selectAll(".answers button")
         .data([0, 1, 2, 3])
         .on("click", function(selected) {
-
-            if (selected === q.correct) {
+            
+            if (selected == q.correct) {
                 // correct
-
+                correct_count++;
             } else {
                 // wrong
                 d3.select(this).classed("ans-wrong", true);
@@ -93,10 +90,7 @@ function renderQuestion(q_idx) {
 }
 
 function renderFinish() {
-    alert("кінець")
-
-
-
+    alert("У вас " + correct_count + " правильних відповідей")
 }
 
 function offset(el) {

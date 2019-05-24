@@ -37,27 +37,13 @@ h3.main-title {
   padding-left: 3em;
   padding-right: 3em;
 }
-//
-//.first-screen {
-//  //background-size: cover;
-//  background-image: url("../image/game_start.png");
-//  background-position: center;
-//  background-repeat: no-repeat;
-//}
 
-.cover-side {
+.first-screen {
   background-size: cover;
+  background-image: url("../image/game_start.png");
   background-position: center;
+  background-position-y: 39%;
   background-repeat: no-repeat;
-
-  &.left-side {
-    background-image: url("../image/left_pic.png");
-  }
-
-  &.right-side {
-    background-image: url("../image/right_pic.png");
-  }
-
 }
 
 

@@ -59,7 +59,11 @@ main {
   text-transform: uppercase; }
 .main-card-container .description {
   margin-top: 0.7em;
+  margin-bottom: 2em;
   font-size: 1em; }
+.main-card-container p {
+  display: inline;
+  background-color: white; }
 
 .card-placeholder {
   border: 1px solid black; }
@@ -161,14 +165,12 @@ h3.main-title {
   padding-left: 3em;
   padding-right: 3em; }
 
-.cover-side {
+.first-screen {
   background-size: cover;
+  background-image: url("../image/game_start.png");
   background-position: center;
+  background-position-y: 39%;
   background-repeat: no-repeat; }
-  .cover-side.left-side {
-    background-image: url("../image/left_pic.png"); }
-  .cover-side.right-side {
-    background-image: url("../image/right_pic.png"); }
 
 h4 {
   font-weight: 300; }
