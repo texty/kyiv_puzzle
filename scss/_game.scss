@@ -31,7 +31,46 @@ main {
   }
 }
 
+.final-card-container {
+  h3.main-title {
+    font-weight: normal;
+    margin: 0 0 1em;
+    text-transform: uppercase;
+  }
 
+  h3 {
+    font-weight: normal;
+    margin: 0 0 0.5em;
+    font-size: 1.4em;
+    text-transform: uppercase;
+  }
+
+  h2.title {
+    text-transform: uppercase;
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+  }
+
+  .description {
+    margin-top: 0.7em;
+    margin-bottom: 2em;
+    font-size: 1em;
+  }
+
+  p {
+    display: inline;
+    background-color: white;
+  }
+
+
+}
+
+.final-card {
+  background-color: white;
+  padding: 2em;
+  width: 27em;
+}
 
 .card-placeholder {
   border: 1px solid black;
@@ -136,4 +175,15 @@ main {
     min-height: unset !important;
   }
 
+}
+
+.final-card {
+  .social-icons {
+    width: 2.6em;
+    font-size: 2.5em;
+
+    a {
+      color: black;
+    }
+  }
 }

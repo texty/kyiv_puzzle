@@ -65,6 +65,33 @@ main {
   display: inline;
   background-color: white; }
 
+.final-card-container h3.main-title {
+  font-weight: normal;
+  margin: 0 0 1em;
+  text-transform: uppercase; }
+.final-card-container h3 {
+  font-weight: normal;
+  margin: 0 0 0.5em;
+  font-size: 1.4em;
+  text-transform: uppercase; }
+.final-card-container h2.title {
+  text-transform: uppercase;
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 0.05em; }
+.final-card-container .description {
+  margin-top: 0.7em;
+  margin-bottom: 2em;
+  font-size: 1em; }
+.final-card-container p {
+  display: inline;
+  background-color: white; }
+
+.final-card {
+  background-color: white;
+  padding: 2em;
+  width: 27em; }
+
 .card-placeholder {
   border: 1px solid black; }
 
@@ -139,6 +166,12 @@ main {
 
   .left-wrapper {
     min-height: unset !important; } }
+.final-card .social-icons {
+  width: 2.6em;
+  font-size: 2.5em; }
+  .final-card .social-icons a {
+    color: black; }
+
 body {
   color: #1f1f1f; }
   body svg text {
@@ -171,6 +204,14 @@ h3.main-title {
   background-position: center;
   background-position-y: 39%;
   background-repeat: no-repeat; }
+
+.result-screen {
+  background-size: cover;
+  background-image: url("../image/all_areas.png");
+  background-position: center;
+  background-position-y: 39%;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.2); }
 
 h4 {
   font-weight: 300; }

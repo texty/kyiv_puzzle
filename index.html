@@ -65,7 +65,7 @@
                 <h3 class="main-title">Київські візерунки</h3>
 
                 <div class="description text-center">
-                    <p>Мікрорайони столиці вражають своїм графічним різноманіттям: деякі схожі на картини конструктивістів, деякі на тварин чи мікроорганізми. Пропонуємо вам подивитися на Київ як на витвір мистецтва і дізнатися про його характерні паттерни під час гри, в якій вам треба вгадати мікрорайон за формою</p>
+                    <p>Мікрорайони столиці вражають своїм графічним різноманіттям: деякі схожі на картини конструктивістів, деякі – на тварин чи мікроорганізми. Пропонуємо вам подивитися на Київ як на витвір мистецтва і дізнатися про його характерні паттерни під час гри, в якій вам треба вгадати мікрорайон за формою</p>
                 </div>
 
                 <p class="authors text-center">Автори: Надя Кельм, Влад Герасименко</p>
@@ -153,41 +153,6 @@
     </div>
 </div>
 
-<!--<script type="text/x-handlebars-template" id="question-card-template">-->
-    <!--<div class="question-card">-->
-        <!--<div class="question-counter text-center"><span class="current">{{question_number}}</span>/<span class="total">{{total}}</span></div>-->
-        <!--<div class="question-image-div six-four">-->
-            <!--<img class="question-image content" src="resources/imgs/{{question_number}}.jpg" alt="{{attrib}}">-->
-        <!--</div>-->
-        <!--<div class="question-image-attrib text-right">{{attrib}}</div>-->
-        <!--<div class="question-text">{{question_text}}</div>-->
-        <!--<div class="answers-block">-->
-            <!--{{#each answers}}-->
-            <!--<div class="answer-div">-->
-                <!--<div class="answer-radio-label">-->
-                    <!--<input type="radio" name="answer-radio-group" class="radiobtn answer-pip" id="radio-ans-{{this.number}}" value="{{this.number}}" autocomplete="off"/>-->
-                    <!--<label class="answer-text" for="radio-ans-{{this.number}}">{{this.text}}</label>-->
-                <!--</div>-->
-                <!--<div class="answer-stat-wrapper text-center">-->
-                    <!--<div class="answer-stat">{{this.stat}}%</div>-->
-                <!--</div>-->
-                <!--<div class="answer-comment">{{this.comment}}</div>-->
-            <!--</div>-->
-            <!--{{/each}}-->
-        <!--</div>-->
-
-        <!--<div class="next-button-div card-button-div text-center">-->
-            <!--<button type="button" class="btn btn-success"></button>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</script>-->
-        <!--<div class="row justify-content-center flex-md-row-reverse">-->
-            <!--<div class="col-12 col-md-4 question-counter text-center">-->
-                <!--<span class="current">{{question_number}}</span>/<span class="total">{{total}}</span>-->
-            <!--</div>-->
-            <!--<div class="col-12 col-md-8 d-flex justify-content-center">-->
-            <!--</div>-->
-        <!--</div>-->
 
 <script type="text/x-handlebars-template" id="question-card-template">
     <div class="container main-card-container d-flex flex-column justify-content-center" style="min-height: 100vh;">
@@ -247,44 +212,29 @@
     </div>
 </script>
 
+
 <script type="text/x-handlebars-template" id="final-card-template">
-    <div class="container main-card-container d-flex flex-column justify-content-center" style="min-height: 100vh;">
-        <div class="row justify-content-center flex-md-row-reverse">
-            <div class="col-12 col-md-4 question-counter text-center">
-                <span class="current">{{question_number}}</span>/<span class="total">{{total}}</span>
-            </div>
-            <div class="col-12 col-md-8 d-flex justify-content-center">
-                <h3>{{text}}</h3>
-            </div>
-        </div>
+    <div class="container final-card-container">
+        <div class="row justify-content-center align-content-center" style="min-height: 90vh;">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 d-flex justify-content-center">
+                <div class="final-card d-flex flex-column align-items-center justify-content-center">
 
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 d-flex justify-content-center">
-                <div class="img-placeholder">
-                    <img src="{{img_path}}" alt="Вгадай мікрорайон по формі будинків">
-                </div>
-            </div>
+                    <h3 class="main-title">Який це мікрорайон</h3>
 
-            <div class="col-12 col-md-4 d-flex flex-column align-items-center">
-                <img src="data/start_clear.png" alt="Київ" class="locator-map d-none d-md-block">
+                    <h2 class="score">{{score}}/{{total}}</h2>
+                    <h2 class="title">{{result.name}}</h2>
 
-                <div class="answers">
-                    {{#each answers}}
-                    <button type="button" class="btn btn-outline-dark">{{this}}</button>
-                    {{/each}}
+                    <p>{{result.text}}</p>
+
+                    <div class="social-icons d-flex justify-content-between align">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/d/2019/kyiv_puzzle/{{score}}" class="share-btn"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/2019/kyiv_puzzle/{{score}}" class="share-btn"><i class="fab fa-twitter-square"></i></a>
+                    </div>
+
+                    <button type="button" class="btn btn-play" id="btn-view-districts" autofocus>Подивитися всі мікрорайони</button>
                 </div>
             </div>
         </div>
-
-        <div class="row justify-content-start" style="min-height: 8em;">
-            <div class="col-12 col-md-8 d-flex justify-content-center">
-                <p class="description d-none">{{{description}}}</p>
-            </div>
-            <div class="col-12 col-md-4 d-flex flex-column justify-content-between">
-                <button type="button" class="btn btn-info w-100" id="btn-next-question" disabled>{{next_button_text}}</button>
-            </div>
-        </div>
-
     </div>
 </script>
 
