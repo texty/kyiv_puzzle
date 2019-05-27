@@ -49,6 +49,7 @@ main {
   font-family: Elektratext, "Open Sans", sans-serif; }
 
 .main-card-container h3.main-title {
+  font-size: 2em;
   font-weight: normal;
   margin: 0 0 1em;
   text-transform: uppercase;
