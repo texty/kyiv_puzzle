@@ -103,6 +103,7 @@ function renderFinish(score, total) {
 
     card_container.classed("result-screen", true);
     card_container.html(final_template({score: score, total: total, result: result}));
+    card_container.node().scrollIntoView(true);
 }
 
 function offset(el) {

@@ -51,7 +51,8 @@ main {
 .main-card-container h3.main-title {
   font-weight: normal;
   margin: 0 0 1em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  background-color: white; }
 .main-card-container h3 {
   font-weight: normal;
   margin: 0 0 0.5em;
