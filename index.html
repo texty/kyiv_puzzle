@@ -255,29 +255,6 @@
 </script>
 
 
-<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyDnqDWBkM-N3klzk34JIDyLCwu4RmwZQyc",
-        authDomain: "kyiv-puzzle.firebaseapp.com",
-        databaseURL: "https://kyiv-puzzle.firebaseio.com",
-        projectId: "kyiv-puzzle",
-        storageBucket: "kyiv-puzzle.appspot.com",
-        messagingSenderId: "488407113994",
-        appId: "1:488407113994:web:da832a31ea5e1363"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const settings = {timestampsInSnapshots: true};
-
-    const firestore = firebase.firestore();
-    firestore.settings(settings);
-
-//    firestore.collection("stats").doc("0").set({id: "0", count: 0})
-</script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
 <script src="libs/d3.js"></script>
