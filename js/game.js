@@ -1,8 +1,10 @@
 var source = document.getElementById("question-card-template").innerHTML;
-var template = Handlebars.compile(source);
-
 var source_final  = document.getElementById("final-card-template").innerHTML;
+var all_regions_source  = document.getElementById("all-regions-template").innerHTML;
+
+var template = Handlebars.compile(source);
 var final_template = Handlebars.compile(source_final);
+var all_regions_template = Handlebars.compile(all_regions_source);
 
 var img_folder = "data/districts/";
 var img_color_folder = "data/districts_color/";
@@ -37,9 +39,14 @@ var card_container = d3.select("main");
 
 
 document.getElementById("btn-game-start").addEventListener("click", function(){
-    d3.select(".first-screen").classed("first-screen", false);
-    renderQuestion(0)
+    startGame();
 });
+
+function startGame() {
+    correct_count = 0;
+    d3.select("main").attr("class", "");
+    renderQuestion(0)
+}
 
 function renderQuestion(q_idx) {
     var q = scenario[q_idx];
@@ -73,6 +80,7 @@ function renderQuestion(q_idx) {
             card_container
                 .select("#btn-next-question")
                 .attr("disabled", null)
+                .attr("autofocus", true)
                 .classed("d-none", false)
                 .on("click", function() {
                     if (q_idx === questions_total - 1) renderFinish(correct_count, questions_total);
@@ -104,6 +112,16 @@ function renderFinish(score, total) {
     card_container.classed("result-screen", true);
     card_container.html(final_template({score: score, total: total, result: result}));
     card_container.node().scrollIntoView(true);
+
+    d3.select("#btn-view-districts")
+        .on("click", function() {
+            card_container
+                .classed("result-screen", false)
+                .html(all_regions_template());
+
+            d3.select("#btn-game-restart")
+                .on("click", startGame);
+        });
 }
 
 function offset(el) {
