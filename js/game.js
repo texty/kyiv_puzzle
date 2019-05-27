@@ -36,11 +36,10 @@ var correct_count = 0;
 var card_container = d3.select("main");
 
 
-    renderFinish(9, 10);
-// document.getElementById("btn-game-start").addEventListener("click", function(){
-//     d3.select(".first-screen").classed("first-screen", false);
-//     renderQuestion(0)
-// });
+document.getElementById("btn-game-start").addEventListener("click", function(){
+    d3.select(".first-screen").classed("first-screen", false);
+    renderQuestion(0)
+});
 
 function renderQuestion(q_idx) {
     var q = scenario[q_idx];
