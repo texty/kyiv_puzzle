@@ -135,7 +135,7 @@ main {
   width: 100%;
   text-transform: uppercase;
   white-space: normal;
-  padding: 0; }
+  padding: 0.2em; }
   .answers button.ans-wrong {
     background-color: #010101;
     opacity: 1 !important;
@@ -171,6 +171,10 @@ main {
   font-size: 2.5em; }
   .final-card .social-icons a {
     color: black; }
+.final-card #btn-replay {
+  margin-top: 1em;
+  font-size: 1rem;
+  color: black; }
 
 body {
   color: #1f1f1f; }

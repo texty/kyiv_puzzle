@@ -12,14 +12,12 @@ var img_locator_folder = "data/map/";
 
 var questions_total = 10;
 
-var locator_imgs = ["clear.png"];
-window.scenario.forEach(q => locator_imgs.push(q.img + ".png"));
+var locator_imgs;
 
-
-var scenario = window.scenario.map(function(q, i) {
+window.__questions__= window.__questions__.map(function(q, i) {
     return {
         total: questions_total,
-        question_number: i + 1,
+        img: q.img,
         img_path: img_folder + q.img + ".png",
         img_color_path: img_color_folder + "color_" + q.img + ".png",
         img_locator_path: img_locator_folder + q.img + ".png",
@@ -27,15 +25,15 @@ var scenario = window.scenario.map(function(q, i) {
         text: q.text,
         answers: [q.ans0, q.ans1, q.ans2, q.ans3],
         correct: q.correct,
-        color: q.color,
-        next_button_text: i < questions_total - 1 ? "Наступне запитання" : "Показати результат",
-        locator_before: locator_imgs.slice(0, i + 1)
+        color: q.color
     }
 });
 
-var correct_count = 0;
+var scenario
+    , correct_count
+    , card_container = d3.select("main")
+    ;
 
-var card_container = d3.select("main");
 
 
 document.getElementById("btn-game-start").addEventListener("click", function(){
@@ -43,6 +41,17 @@ document.getElementById("btn-game-start").addEventListener("click", function(){
 });
 
 function startGame() {
+    scenario = shuffle(window.__questions__.slice()).slice(0, questions_total);
+
+    locator_imgs = ["clear.png"];
+    scenario.forEach(q => locator_imgs.push(q.img + ".png"));
+
+    scenario.forEach(function(q, i){
+        q.question_number = i + 1;
+        q.next_button_text = i < questions_total - 1 ? "Наступне запитання" : "Показати результат";
+        q.locator_before = locator_imgs.slice(0, i + 1);
+    });
+
     correct_count = 0;
     d3.select("main").attr("class", "");
     renderQuestion(0)
@@ -102,12 +111,12 @@ function renderQuestion(q_idx) {
 }
 
 function renderFinish(score, total) {
-    window.final.forEach(function(r) {
+    window.__final__.forEach(function(r) {
         r.min_score = +r.score.split(";")[0];
         r.max_score = +r.score.split(";")[1];
     });
 
-    var result = window.final.filter(r => score >= r.min_score && score <= r.max_score)[0];
+    var result = window.__final__.filter(r => score >= r.min_score && score <= r.max_score)[0];
 
     card_container.classed("result-screen", true);
     card_container.html(final_template({score: score, total: total, result: result}));
@@ -122,6 +131,11 @@ function renderFinish(score, total) {
             d3.select("#btn-game-restart")
                 .on("click", startGame);
         });
+
+    d3.select("#btn-replay")
+        .on("click", function() {
+            startGame();
+        })
 }
 
 function offset(el) {
@@ -136,4 +150,24 @@ function preload(image_path) {
         var img1 = new Image();
         img1.src = image_path;
     }
+}
+
+function shuffle(array) {
+
+    var currentIndex = array.length;
+    var temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
 }

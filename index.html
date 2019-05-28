@@ -141,10 +141,6 @@
             <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/2019/kyiv_puzzle/" class="share-btn"><i class="fab fa-twitter"></i></a>
         </div>
 
-        <!--<div class="row justify-content-center">-->
-            <!--<h3>Створено Текстами</h3>-->
-        <!--</div>-->
-
         <div class="row justify-content-center">
             <div class="logo">
                 <a href="http://texty.org.ua/"><img src="image/logo.png" alt="texty.org.ua" style="max-width: 100%;"></a>
@@ -228,7 +224,7 @@
                     <h2 class="score">{{score}}/{{total}}</h2>
                     <h2 class="title">{{result.name}}</h2>
 
-                    <p>{{result.text}}</p>
+                    <p class="text-center">{{result.text}}</p>
 
                     <div class="social-icons d-flex justify-content-between align">
                         <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/d/2019/kyiv_puzzle/share/{{score}}" class="share-btn"><i class="fab fa-facebook-square"></i></a>
@@ -236,6 +232,7 @@
                     </div>
 
                     <button type="button" class="btn btn-play" id="btn-view-districts" autofocus>Подивитися всі мікрорайони</button>
+                    <a href="#" id="btn-replay"><i class="fas fa-redo"></i> Грати ще раз</a>
                 </div>
             </div>
         </div>
@@ -260,7 +257,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>-->
 <script src="libs/d3.js"></script>
 <script src="libs/share-behavior.js"></script>
 

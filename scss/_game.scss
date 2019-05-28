@@ -130,7 +130,7 @@ main {
   width: 100%;
   text-transform: uppercase;
   white-space: normal;
-  padding: 0;
+  padding: 0.2em;
 
   &.ans-wrong {
     background-color: #010101;
@@ -186,5 +186,11 @@ main {
     a {
       color: black;
     }
+  }
+
+  #btn-replay {
+    margin-top: 1em;
+    font-size: 1rem;
+    color: black;
   }
 }
