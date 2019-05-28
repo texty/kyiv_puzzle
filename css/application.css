@@ -117,8 +117,7 @@ main {
 
 .locator-map {
   position: relative;
-  width: 100%;
-  max-width: 250px; }
+  width: 100%; }
   .locator-map img {
     width: 100%;
     position: absolute;
