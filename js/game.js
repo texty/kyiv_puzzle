@@ -80,6 +80,7 @@ function renderQuestion(q_idx) {
             } else {
                 // wrong
                 d3.select(this).classed("ans-wrong", true);
+                playWrong();
             }
 
             card_container
@@ -174,4 +175,8 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+function playWrong() {
+    document.getElementById('audiotag1').play();
 }
