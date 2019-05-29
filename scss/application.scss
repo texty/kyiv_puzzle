@@ -9,6 +9,11 @@
 body {
   color: $main-text;
   svg text { fill: $main-text };
+
+  &.wrong {
+    background-color: black;
+    filter: invert(100%);
+  }
 }
 
 .main-text {
@@ -207,6 +212,7 @@ header {
 }
 
 .dm-switch {
+  background-color: white;
   position: absolute;
   margin-bottom: 100%;
   right: 0;

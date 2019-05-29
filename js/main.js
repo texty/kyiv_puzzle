@@ -13,5 +13,6 @@ var dm_switch = document.querySelector(".dm-switch");
 
 dm_switch.addEventListener("click", function(e){
     window.__dm_mode__ = ! window.__dm_mode__;
-    dm_switch.classList.toggle("active")
+    dm_switch.classList.toggle("active");
+    document.body.classList.toggle("wrong");
 });

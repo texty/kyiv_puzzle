@@ -185,6 +185,9 @@ body {
   color: #1f1f1f; }
   body svg text {
     fill: #1f1f1f; }
+  body.wrong {
+    background-color: black;
+    filter: invert(100%); }
 
 .main-text {
   font-family: "Open Sans", sans-serif; }
@@ -325,6 +328,7 @@ header {
   position: relative; }
 
 .dm-switch {
+  background-color: white;
   position: absolute;
   margin-bottom: 100%;
   right: 0;
