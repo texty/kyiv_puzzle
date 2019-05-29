@@ -334,8 +334,19 @@ header {
   cursor: pointer;
   opacity: 0;
   border: 1px solid black; }
+  .dm-switch p {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 110%;
+    font-size: 1em;
+    background: white;
+    width: 8em;
+    display: none; }
   .dm-switch:hover {
     opacity: 1; }
+    .dm-switch:hover p {
+      display: block; }
   .dm-switch.active i {
     color: #7f7f7f; }
   .dm-switch i {
