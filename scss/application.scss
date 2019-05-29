@@ -11,6 +11,54 @@ body {
   svg text { fill: $main-text };
 }
 
+.main-text {
+  font-family: "Open Sans", sans-serif;
+
+  h3 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-top: 3em;
+  }
+
+  p.author {
+    font-size: .9em;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 8em;
+  }
+}
+
+
+.btn-down {
+  i {
+    color: black;
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2em;
+    letter-spacing: 0.15em;
+    color: #24FD59;
+    margin-bottom: 0;
+    background-color: white;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    h2 {color: black}
+  }
+}
+
+
+.start {
+  margin-bottom: auto;
+  visibility: hidden;
+}
+
+.end {
+  margin-top: auto;
+}
 
 h3.main-title {
   text-transform: uppercase;

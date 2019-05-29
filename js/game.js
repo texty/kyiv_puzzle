@@ -23,8 +23,11 @@ window.__questions__= window.__questions__.map(function(q, i) {
         img_locator_path: img_locator_folder + q.img + ".png",
         description: q.descr,
         text: q.text,
-        answers: [q.ans0, q.ans1, q.ans2, q.ans3],
-        correct: q.correct,
+        correct: q.ans0,
+        ans0: q.ans0,
+        ans1: q.ans1,
+        ans2: q.ans2,
+        ans3: q.ans3,
         color: q.color
     }
 });
@@ -38,6 +41,7 @@ var scenario
 
 document.getElementById("btn-game-start").addEventListener("click", function(){
     startGame();
+    d3.select(".main-text").remove();
 });
 
 function startGame() {
@@ -50,6 +54,7 @@ function startGame() {
         q.question_number = i + 1;
         q.next_button_text = i < questions_total - 1 ? "Наступне запитання" : "Показати результат";
         q.locator_before = locator_imgs.slice(0, i + 1);
+        q.answers = shuffle([q.ans0, q.ans1, q.ans2, q.ans3]);
     });
 
     correct_count = 0;
@@ -67,9 +72,8 @@ function renderQuestion(q_idx) {
 
     var buttons = card_container
         .selectAll(".answers button")
-        .data([0, 1, 2, 3])
+        .data(q.answers)
         .on("click", function(selected) {
-            
             if (selected == q.correct) {
                 // correct
                 correct_count++;
@@ -84,7 +88,7 @@ function renderQuestion(q_idx) {
 
             buttons
                 .attr("disabled", true)
-                .classed("ans-correct", ii => ii == q.correct);
+                .classed("ans-correct", c_ans => c_ans == q.correct);
 
             card_container
                 .select("#btn-next-question")

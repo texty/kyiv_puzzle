@@ -30,7 +30,7 @@ var orm = (function(){
     };
 
     module.getAll = function(cb) {
-        db.collection("stats").get().then(function(querySnapshot){
+        db.collection("questions").get().then(function(querySnapshot){
             var result = [];
 
             querySnapshot.forEach(function(doc){

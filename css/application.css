@@ -181,6 +181,39 @@ body {
   body svg text {
     fill: #1f1f1f; }
 
+.main-text {
+  font-family: "Open Sans", sans-serif; }
+  .main-text h3 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-top: 3em; }
+  .main-text p.author {
+    font-size: .9em;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 8em; }
+
+.btn-down i {
+  color: black;
+  font-size: 3em; }
+.btn-down h2 {
+  font-size: 2em;
+  letter-spacing: 0.15em;
+  color: #24FD59;
+  margin-bottom: 0;
+  background-color: white; }
+.btn-down:hover {
+  text-decoration: none; }
+  .btn-down:hover h2 {
+    color: black; }
+
+.start {
+  margin-bottom: auto;
+  visibility: hidden; }
+
+.end {
+  margin-top: auto; }
+
 h3.main-title {
   text-transform: uppercase;
   letter-spacing: 0.2em;
