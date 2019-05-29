@@ -132,14 +132,16 @@ main {
   white-space: normal;
   padding: 0.2em;
 
+  box-shadow: none !important;
+
   &.ans-wrong {
-    background-color: #010101;
+    background-color: $main-wrong;
     opacity: 1 !important;
     color: white;
   }
 
   &.ans-correct {
-    background-color: #7bfd43;
+    background-color: $main-green;
     opacity: 1 !important;
     color: black;
   }
@@ -156,6 +158,12 @@ main {
     color: #3d3d3d;
   }
 
+  &:hover {
+    background-color: black;
+      border-color: black;
+    color: white;
+  }
+
 }
 
 .question-counter {
@@ -163,7 +171,7 @@ main {
   color: #aaa;
 
   .active {
-    color: #7bfd43;
+    color: $main-green;
   }
 }
 

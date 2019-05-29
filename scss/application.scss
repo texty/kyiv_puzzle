@@ -29,6 +29,7 @@ body {
 }
 
 
+
 .btn-down {
   i {
     color: black;
@@ -38,7 +39,7 @@ body {
   h2 {
     font-size: 2em;
     letter-spacing: 0.15em;
-    color: #24FD59;
+    color: $main-green;
     margin-bottom: 0;
     background-color: white;
   }
@@ -80,8 +81,8 @@ h3.main-title {
 
 .btn-play {
   color: #000;
-  background-color: #24FD59;
-  border-color: #24FD59;
+  background-color: $main-green;
+  border-color: $main-green;
   padding-left: 3em;
   padding-right: 3em;
 }

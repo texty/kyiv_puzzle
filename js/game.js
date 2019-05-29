@@ -9,6 +9,7 @@ var all_regions_template = Handlebars.compile(all_regions_source);
 var img_folder = "data/districts/";
 var img_color_folder = "data/districts_color/";
 var img_locator_folder = "data/map/";
+var img_locator_wrong_folder = "data/map/wrong/";
 
 var questions_total = 10;
 
@@ -21,6 +22,7 @@ window.__questions__= window.__questions__.map(function(q, i) {
         img_path: img_folder + q.img + ".png",
         img_color_path: img_color_folder + "color_" + q.img + ".png",
         img_locator_path: img_locator_folder + q.img + ".png",
+        img_locator_wrong_path: img_locator_wrong_folder + q.img + ".png",
         description: q.descr,
         text: q.text,
         correct: q.ans0,
@@ -47,13 +49,13 @@ document.getElementById("btn-game-start").addEventListener("click", function(){
 function startGame() {
     scenario = shuffle(window.__questions__.slice()).slice(0, questions_total);
 
-    locator_imgs = ["clear.png"];
-    scenario.forEach(q => locator_imgs.push(q.img + ".png"));
+    locator_imgs = [img_locator_folder + "clear.png"];
+    // scenario.forEach(q => locator_imgs.push(q.img + ".png"));
 
     scenario.forEach(function(q, i){
         q.question_number = i + 1;
         q.next_button_text = i < questions_total - 1 ? "Наступне запитання" : "Показати результат";
-        q.locator_before = locator_imgs.slice(0, i + 1);
+        // q.locator_before = locator_imgs.slice(0, i + 1);
         q.answers = shuffle([q.ans0, q.ans1, q.ans2, q.ans3]);
     });
 
@@ -64,6 +66,8 @@ function startGame() {
 
 function renderQuestion(q_idx) {
     var q = scenario[q_idx];
+    q.locator_before = locator_imgs;
+
     card_container.html(template(q));
     
     card_container
@@ -77,9 +81,22 @@ function renderQuestion(q_idx) {
             if (selected == q.correct) {
                 // correct
                 correct_count++;
+                locator_imgs.push(q.img_locator_path);
+
+                card_container
+                    .select(".locator-map")
+                    .append("img")
+                    .attr("src", q.img_locator_path);
             } else {
                 // wrong
                 d3.select(this).classed("ans-wrong", true);
+                locator_imgs.push(q.img_locator_wrong_path);
+
+                card_container
+                    .select(".locator-map")
+                    .append("img")
+                    .attr("src", q.img_locator_wrong_path);
+
                 playWrong();
             }
 
@@ -107,7 +124,7 @@ function renderQuestion(q_idx) {
                     .attr("src", q.img_color_path)
             }
 
-            card_container.select(".locator-map").append("img").attr("src", q.img_locator_path);
+
 
         });
 

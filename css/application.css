@@ -135,9 +135,10 @@ main {
   width: 100%;
   text-transform: uppercase;
   white-space: normal;
-  padding: 0.2em; }
+  padding: 0.2em;
+  box-shadow: none !important; }
   .answers button.ans-wrong {
-    background-color: #010101;
+    background-color: #9101b7;
     opacity: 1 !important;
     color: white; }
   .answers button.ans-correct {
@@ -153,6 +154,10 @@ main {
   margin-top: 2.5em; }
   .btn-info.disabled, .btn-info:disabled {
     color: #3d3d3d; }
+  .btn-info:hover {
+    background-color: black;
+    border-color: black;
+    color: white; }
 
 .question-counter {
   font-size: 1.1em;
@@ -199,7 +204,7 @@ body {
 .btn-down h2 {
   font-size: 2em;
   letter-spacing: 0.15em;
-  color: #24FD59;
+  color: #7bfd43;
   margin-bottom: 0;
   background-color: white; }
 .btn-down:hover {
@@ -230,8 +235,8 @@ h3.main-title {
 
 .btn-play {
   color: #000;
-  background-color: #24FD59;
-  border-color: #24FD59;
+  background-color: #7bfd43;
+  border-color: #7bfd43;
   padding-left: 3em;
   padding-right: 3em; }
 
