@@ -195,5 +195,6 @@ function shuffle(array) {
 }
 
 function playWrong() {
+    if (!window.__dm_mode__) return;
     document.getElementById('audiotag1').play();
 }

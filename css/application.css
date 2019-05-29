@@ -241,6 +241,7 @@ h3.main-title {
   padding-right: 3em; }
 
 .first-screen {
+  position: relative;
   background-size: cover;
   background-image: url("../image/game_start.png");
   background-position: center;
@@ -319,5 +320,26 @@ p {
   @media (max-width: 700px) {
     .desktop {
       display: none; } }
+
+header {
+  position: relative; }
+
+.dm-switch {
+  position: absolute;
+  margin-bottom: 100%;
+  right: 0;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  opacity: 0;
+  border: 1px solid black; }
+  .dm-switch:hover {
+    opacity: 1; }
+  .dm-switch.active i {
+    color: #7f7f7f; }
+  .dm-switch i {
+    font-size: 2.5em;
+    color: white; }
 
 /*# sourceMappingURL=application.css.map */
