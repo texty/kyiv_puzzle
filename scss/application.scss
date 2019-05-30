@@ -211,8 +211,20 @@ header {
   position: relative;
 }
 
+body {
+  &.wrong {
+    background-color: black;
+    filter: invert(100%);
+  }
+}
+
 .dm-switch {
-  background-color: white;
+  background: white;
+  background-image: url('../image/speaker.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0px 0px;
+
   position: absolute;
   margin-bottom: 100%;
   right: 0;
@@ -237,6 +249,7 @@ header {
 
   &:hover {
     opacity: 1;
+
     p {
       display: block;
     }
@@ -245,6 +258,8 @@ header {
   border: 1px solid black;
 
   &.active {
+    background-size: 80% 80%;
+
     i {
       color: #7f7f7f;
     }

@@ -327,8 +327,16 @@ p {
 header {
   position: relative; }
 
+body.wrong {
+  background-color: black;
+  filter: invert(100%); }
+
 .dm-switch {
-  background-color: white;
+  background: white;
+  background-image: url("../image/speaker.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0px 0px;
   position: absolute;
   margin-bottom: 100%;
   right: 0;
@@ -351,8 +359,10 @@ header {
     opacity: 1; }
     .dm-switch:hover p {
       display: block; }
-  .dm-switch.active i {
-    color: #7f7f7f; }
+  .dm-switch.active {
+    background-size: 80% 80%; }
+    .dm-switch.active i {
+      color: #7f7f7f; }
   .dm-switch i {
     font-size: 2.5em;
     color: white; }

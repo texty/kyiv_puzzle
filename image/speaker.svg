@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.0" width="32.5" height="33.868519" id="svg4490" inkscape:version="0.91 r13725" sodipodi:docname="IEEE_Loudspeaker.svg">
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1057" id="namedview14" showgrid="true" inkscape:zoom="6.020509" inkscape:cx="5.0725337" inkscape:cy="6.6513188" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg4490" inkscape:snap-bbox="true" inkscape:snap-intersection-paths="true" inkscape:object-nodes="true" inkscape:snap-smooth-nodes="true" units="mm" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0">
+    <inkscape:grid type="xygrid" id="grid4149" originx="-112" originy="-67.065741"/>
+  </sodipodi:namedview>
+  <title id="title3781">Zener diode symbol</title>
+  <defs id="defs4492"/>
+  <metadata id="metadata4495">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title>Zener diode symbol</dc:title>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Wikimedia Foundation</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:description>Zener diode symbol, after ANSI Y32.2-1975, IEEE Std. 315-1975, except that the words "Anode" and "Cathode" are not included when the symbol is used in schematic diagrams.</dc:description>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>Omegatron, Hydrargyrum</dc:title>
+          </cc:Agent>
+        </dc:contributor>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g id="g4222" transform="translate(7,60.934259)">
+    <rect transform="matrix(0,1,-1,0,0,0)" style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" id="rect8125-8-1-4-1-7-8" width="16" height="12" x="-52" y="-13"/>
+    <path sodipodi:nodetypes="cccc" inkscape:connector-curvature="0" id="path5321" d="m 13,-36 12,8 0,-32 -12,8" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    <path inkscape:connector-curvature="0" id="path4218" d="m -7,-40 8,0" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    <path inkscape:connector-curvature="0" id="path4220" d="m -7,-48 8,0" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+  </g>
+</svg>
